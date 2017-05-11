@@ -1,11 +1,11 @@
 package Visualizers;
 
+import Model.Amminoacid;
+import Model.Chain;
+
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import Model.Amminoacid;
-import Model.Chain;
 
 import static java.lang.Math.abs;
 

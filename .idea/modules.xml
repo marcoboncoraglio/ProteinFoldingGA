@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GeneticAlg.iml" filepath="$PROJECT_DIR$/GeneticAlg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProteinSimulator.iml" filepath="$PROJECT_DIR$/ProteinSimulator.iml" />
     </modules>
   </component>
 </project>

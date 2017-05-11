@@ -1,6 +1,6 @@
 package Util;
 
-import Model.*;
+import Model.Chain;
 
 /**
  * Created by marco on 11/05/17.

@@ -1,7 +1,6 @@
 package Model;
 
 import Util.ChainFitnessEvaluator;
-import Util.PopulationFitnessEvaluator;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a835602-b2a0-448a-837f-da1aae55289c" name="Default" comment="" />
+    <list default="true" id="9a835602-b2a0-448a-837f-da1aae55289c" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GeneticAlg.iml" afterPath="$PROJECT_DIR$/ProteinSimulator.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Chain.java" afterPath="$PROJECT_DIR$/src/Model/Chain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Population.java" afterPath="$PROJECT_DIR$/src/Model/Population.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" afterPath="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Visualizers/ChainVisualizer.java" afterPath="$PROJECT_DIR$/src/Visualizers/ChainVisualizer.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,8 +50,9 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Chain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="918">
-              <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+              <caret line="122" column="5" lean-forward="false" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#generateDirections#0;class#Chain#0" expanded="false" />
                 <element signature="method#readChar#0;class#Chain#0" expanded="false" />
                 <element signature="method#generateChain#0;class#Chain#0" expanded="false" />
@@ -85,12 +94,11 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Population.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+              <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#Population#0;class#Population#0" expanded="false" />
-                <element signature="e#1203#1204#0" expanded="true" />
-                <element signature="e#1257#1258#0" expanded="true" />
+                <element signature="e#1204#1205#0" expanded="true" />
+                <element signature="e#1258#1259#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#306#307#0" expanded="true" />
@@ -123,6 +131,9 @@
     <findStrings>
       <find>fillOval</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -160,6 +171,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -672,12 +684,12 @@
       <updated>1494500884135</updated>
       <workItem from="1494500887734" duration="8074000" />
       <workItem from="1494509242869" duration="43000" />
-      <workItem from="1494527647642" duration="15148000" />
+      <workItem from="1494527647642" duration="15324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23265000" />
+    <option name="totallyTimeSpent" value="23441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1600" y="0" width="1920" height="1080" extended-state="6" />
@@ -691,8 +703,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28615385" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28733265" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -795,10 +807,9 @@
         <state relative-caret-position="864">
           <caret line="88" column="58" lean-forward="false" selection-start-line="88" selection-start-column="58" selection-end-line="88" selection-end-column="58" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -837,10 +848,9 @@
         <state relative-caret-position="810">
           <caret line="85" column="106" lean-forward="false" selection-start-line="85" selection-start-column="106" selection-end-line="85" selection-end-column="106" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -880,14 +890,14 @@
         <state relative-caret-position="421">
           <caret line="77" column="36" lean-forward="false" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#472#713#0" expanded="true" />
             <element signature="e#712#713#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GeneticAlg.iml">
+    <entry file="file://$PROJECT_DIR$/ProteinSimulator.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -898,8 +908,9 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Chain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
-          <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+          <caret line="122" column="5" lean-forward="false" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#generateDirections#0;class#Chain#0" expanded="false" />
             <element signature="method#readChar#0;class#Chain#0" expanded="false" />
             <element signature="method#generateChain#0;class#Chain#0" expanded="false" />
@@ -946,12 +957,11 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Population.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,7 +969,7 @@
     <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#306#307#0" expanded="true" />

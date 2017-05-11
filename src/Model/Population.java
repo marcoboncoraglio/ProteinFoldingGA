@@ -1,9 +1,10 @@
 package Model;
 
+import Util.PopulationFitnessEvaluator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import Util.PopulationFitnessEvaluator;
 
 /**
  * Created by marco on 11/05/17.
