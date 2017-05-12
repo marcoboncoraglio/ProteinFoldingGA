@@ -52,7 +52,8 @@ public class ChainFitnessEvaluator {
         }
 
         if(overlapping > 0){
-            return fitness/(4*overlapping);
+            //System.out.println(overlapping);
+            return 0.1;
         }
         return fitness / 2;
     }

@@ -13,7 +13,7 @@ public class Population {
     private List<Chain> chainPopulation;
     private String chainString;
     private int generation;
-    public int populationSize = 100;
+    public int populationSize = 30;
     private PopulationFitnessEvaluator evaluator;
 
     public List<Chain> getChainPopulation() {
@@ -39,7 +39,7 @@ public class Population {
 
         for (Chain c : chainPopulation) {
             c.generateChain();
-            if(c.getEvaluator().measureFitness() < 1){
+            if (c.getEvaluator().measureFitness() < 1) {
                 c.generateChain();
             }
         }
@@ -49,27 +49,38 @@ public class Population {
         this.chainPopulation = chainPopulation;
     }
 
-    public ArrayList<Chain> weightedSelection() { //THIS IS STILL WRONG?
+    public void weightedSelection() { //THIS IS STILL WRONG?
         Random randGenerator = new Random();
-        float randNum = randGenerator.nextFloat() * evaluator.measureTotalFitness();
+        float randNum = 0;
 
         ArrayList<Chain> selectedPopulation = new ArrayList();
         int index = 0;
+        double fitnessPerChain;
 
-        for(Chain c : chainPopulation) {
+        for(Chain c: chainPopulation) {
+            randNum = randGenerator.nextFloat() * evaluator.measureTotalFitness();
+            fitnessPerChain = c.getEvaluator().measureFitness();
+
             for (int i = 0; i < chainPopulation.size(); i++) {
-                randNum -= chainPopulation.get(i).getEvaluator().measureFitness();
+                randNum -= fitnessPerChain;
                 if (randNum <= 0) {
-                    index = 0;
+                    index = i;
+                    break;
                 }
             }
+
             selectedPopulation.add(new Chain(chainPopulation.get(index).getAmminoChain(), chainString));
+
         }
 
 
         generation++;
 
-        return selectedPopulation;
+        this.setChainPopulation(selectedPopulation);
+    }
+
+    public int getGeneration() {
+        return generation;
     }
 }
 

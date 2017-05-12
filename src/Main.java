@@ -1,5 +1,6 @@
 import Model.Population;
 import Util.PopulationFileOutput;
+import Visualizers.ChainVisualizer;
 
 /**
  * Created by marco on 11/05/17.
@@ -7,14 +8,17 @@ import Util.PopulationFileOutput;
 public class Main {
 
     public static void main(String args[]) {
-        Population p = new Population("1001010");
+        Population p = new Population("10010100001");
 
         p.initPopulation();
-        PopulationFileOutput fileOutput = new PopulationFileOutput(p);
+        System.out.println(p.getEvaluator().measureAverageFitness());
 
-        while(p.getEvaluator().measureAverageFitness() < 2){
-            fileOutput.printData();
+        while(p.getGeneration() < 1000){
+            p.weightedSelection();
+            System.out.println(p.getEvaluator().measureAverageFitness());
         }
+
+
 
     }
 }

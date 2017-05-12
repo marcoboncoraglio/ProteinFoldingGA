@@ -121,4 +121,6 @@ public class Chain {
             amminoChain.get(i + 1).setLeft(amminoChain.get(i));
         }
     }
+
+    //jchart2d http://jchart2d.sourceforge.net/
 }
