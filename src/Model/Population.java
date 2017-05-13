@@ -49,7 +49,7 @@ public class Population {
         this.chainPopulation = chainPopulation;
     }
 
-    public void weightedSelection() { //THIS IS STILL WRONG?
+    public void weightedSelection() {
         Random randGenerator = new Random();
         float randNum = 0;
 

@@ -9,18 +9,16 @@ import Visualizers.PopulationVisualizer;
 public class Main {
 
     public static void main(String args[]) {
-        /*Population p = new Population("10010100001");
-
+        int amoutOfGenerations = 500;
+        Population p = new Population("10010100001");
         p.initPopulation();
-        System.out.println(p.getEvaluator().measureAverageFitness());
+        PopulationVisualizer pVis = new PopulationVisualizer(p, amoutOfGenerations);
 
-        while(p.getGeneration() < 1000){
+
+        while (p.getGeneration() < amoutOfGenerations) {
             p.weightedSelection();
             System.out.println(p.getEvaluator().measureAverageFitness());
         }
-        */
-
-        PopulationVisualizer pVis = new PopulationVisualizer();
 
 
     }
