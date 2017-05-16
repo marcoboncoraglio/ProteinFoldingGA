@@ -18,7 +18,7 @@ public class ChainVisualizer extends Frame {
 
     public ChainVisualizer(Chain c) {
         super("Chain Visualizer");
-        setSize(1200, 800);
+        setSize(800, 600);
         setBackground(Color.white);
 
         addWindowListener(new WindowAdapter() {
@@ -47,8 +47,8 @@ public class ChainVisualizer extends Frame {
 
         averageX = averageX / chain.getAmminoChain().size();
         averageY = averageY / chain.getAmminoChain().size();
-        returnArray[0] = averageX * 50;
-        returnArray[1] = averageY * 50;
+        returnArray[0] = averageX * 30;
+        returnArray[1] = averageY * 30;
 
         return returnArray;
     }
@@ -69,15 +69,15 @@ public class ChainVisualizer extends Frame {
 
         for (int i = 0; i < chain.getAmminoChain().size(); i++) {
             if (chain.getAmminoChain().get(i).isHydrophobic())
-                g2d.fillOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 50, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 50, 10, 10);
+                g2d.fillOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30, 10, 10);
             else
-                g2d.drawOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 50, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 50, 10, 10);
+                g2d.drawOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30, 10, 10);
 
             if (i != 0)
-                g2d.drawLine(abs(center[0]) + chain.getAmminoChain().get(i - 1).getX() * 50,
-                        abs(center[1]) + chain.getAmminoChain().get(i - 1).getY() * 50,
-                        abs(center[0]) + chain.getAmminoChain().get(i).getX() * 50,
-                        abs(center[1]) + chain.getAmminoChain().get(i).getY() * 50);
+                g2d.drawLine(abs(center[0]) + chain.getAmminoChain().get(i - 1).getX() * 30,
+                        abs(center[1]) + chain.getAmminoChain().get(i - 1).getY() * 30,
+                        abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30,
+                        abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30);
         }
     }
 }

@@ -47,7 +47,7 @@ public class Amminoacid {
     }
 
     public boolean isConnected(Amminoacid a){
-        if(a.getRight() == this.right || a.getLeft() == this.left)
+        if(a.getRight() == this || a.getLeft() == this)
             return true;
         else return false;
     }

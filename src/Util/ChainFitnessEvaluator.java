@@ -14,10 +14,10 @@ public class ChainFitnessEvaluator {
         this.chain = chain;
     }
 
-    public void checkConnections(){
+    public void checkConnections() {
         //check for overlapping amminoacids
 
-        int overlapping = 0;
+        this.overlapping = 0;
 
         for (int i = 0; i < chain.getAmminoChain().size(); i++) {
             for (int j = 0; j < chain.getAmminoChain().size(); j++) {
@@ -30,20 +30,29 @@ public class ChainFitnessEvaluator {
         }
     }
 
-    public double measureFitness(){
+    public double measureFitness() {
+        checkConnections();
+
         double fitness = 0;
 
         for (int i = 0; i < chain.getAmminoChain().size(); i++) {
             for (int j = 0; j < chain.getAmminoChain().size(); j++) {
                 //are both hydrophobic and not connected?
-                if (chain.getAmminoChain().get(i).isHydrophobic() && chain.getAmminoChain().get(j).isHydrophobic() && !chain.getAmminoChain().get(i).isConnected(chain.getAmminoChain().get(j))) {
+                if ((chain.getAmminoChain().get(i).isHydrophobic() && chain.getAmminoChain().get(j).isHydrophobic()) && !chain.getAmminoChain().get(i).isConnected(chain.getAmminoChain().get(j))) {
+                    //are they neighbours
                     if (chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX() - 1 && chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY()
                             || chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX() + 1 && chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY()
                             || chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY() - 1 && chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX()
                             || chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY() + 1 && chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX()) {
                         fitness++;
 
-                        //System.out.println("Minimal Energy Bond found between: " + i + ", " + j);
+                        /*
+                        System.out.println("Amminoacid i: " + i + " " + chain.getAmminoChain().get(i).getX() + ";" + chain.getAmminoChain().get(i).getY() + " " + chain.getAmminoChain().get(i).isHydrophobic());
+                        System.out.println("Amminoacid j: " + j + " " + chain.getAmminoChain().get(j).getX() + ";" + chain.getAmminoChain().get(j).getY() + " " + chain.getAmminoChain().get(j).isHydrophobic());
+                        System.out.println("Are Connected: " + chain.getAmminoChain().get(i).isConnected(chain.getAmminoChain().get(j)));
+                        System.out.println();
+                        */
+
                     }
 
                 }
@@ -51,8 +60,7 @@ public class ChainFitnessEvaluator {
 
         }
 
-        if(overlapping > 0){
-            //System.out.println(overlapping);
+        if (overlapping > 0) {
             return fitness/(overlapping*100);
         }
         return fitness / 2;

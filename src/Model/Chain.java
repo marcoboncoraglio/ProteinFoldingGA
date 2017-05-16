@@ -122,5 +122,27 @@ public class Chain {
         }
     }
 
-    //jchart2d http://jchart2d.sourceforge.net/
+    public void printChainConnections(){
+        for(int i=0; i<amminoChain.size(); i++){
+            if(i == 0){
+                System.out.println(i);
+                System.out.println("X: " + amminoChain.get(i).getX() + " Y:" + amminoChain.get(i).getY() + " Hydrophobic: " +amminoChain.get(i).isHydrophobic());
+                System.out.println("Right X: " + amminoChain.get(i).getRight().getX() + " Right Y:" + amminoChain.get(i).getRight().getY() + " Hydrophobic: " +amminoChain.get(i).getRight().isHydrophobic());
+            }
+
+            else if(i == amminoChain.size()-1){
+                System.out.println(i);
+                System.out.println("X: " + amminoChain.get(i).getX() + " Y:" + amminoChain.get(i).getY() + " Hydrophobic: " +amminoChain.get(i).isHydrophobic());
+                System.out.println("Left X: " + amminoChain.get(i).getLeft().getX() + " Left Y:" + amminoChain.get(i).getLeft().getY() + " Hydrophobic: " +amminoChain.get(i).getLeft().isHydrophobic());
+            }
+
+            else{
+                System.out.println(i);
+                System.out.println("X: " + amminoChain.get(i).getX() + " Y:" + amminoChain.get(i).getY() + " Hydrophobic: " +amminoChain.get(i).isHydrophobic());
+                System.out.println("Left X: " + amminoChain.get(i).getLeft().getX() + " Left Y:" + amminoChain.get(i).getLeft().getY() + " Hydrophobic: " +amminoChain.get(i).getLeft().isHydrophobic());
+                System.out.println("Right X: " + amminoChain.get(i).getRight().getX() + " Right Y:" + amminoChain.get(i).getRight().getY() + " Hydrophobic: " +amminoChain.get(i).getRight().isHydrophobic());
+            }
+
+        }
+    }
 }

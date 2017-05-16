@@ -1,3 +1,4 @@
+import Model.Chain;
 import Model.Population;
 import Util.PopulationFileOutput;
 import Visualizers.ChainVisualizer;
@@ -9,16 +10,20 @@ import Visualizers.PopulationVisualizer;
 public class Main {
 
     public static void main(String args[]) {
-        int amoutOfGenerations = 500;
-        Population p = new Population("10010100001");
-        p.initPopulation();
-        PopulationVisualizer pVis = new PopulationVisualizer(p, amoutOfGenerations);
 
+        Chain c = new Chain("1001000");
+        c.generateDirections();
+        c.generateChain();
 
-        while (p.getGeneration() < amoutOfGenerations) {
-            p.weightedSelection();
-            System.out.println(p.getEvaluator().measureAverageFitness());
+        while(c.getEvaluator().measureFitness() < 0.2){
+            c.generateDirections();
+            c.generateChain();
         }
+
+        //c.printChainConnections();
+        System.out.println(c.getEvaluator().measureFitness());
+
+        new ChainVisualizer(c);
 
 
     }
