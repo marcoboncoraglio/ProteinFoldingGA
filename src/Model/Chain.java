@@ -10,26 +10,29 @@ import java.util.Random;
  * Created by marco on 11/05/17.
  */
 
-enum Direction {
-    NORTH,
-    SOUTH,
-    EAST,
-    WEST
-}
+
 
 public class Chain {
+
+    enum Direction {
+        NORTH,
+        SOUTH,
+        EAST,
+        WEST
+    }
+
     private List<Direction> directions;
     private List<Amminoacid> amminoChain;
     private String chainString;
     private ChainFitnessEvaluator evaluator;
 
-    public Chain(String chainString) {
+    Chain(String chainString) {
         this.chainString = chainString;
         this.evaluator = new ChainFitnessEvaluator(this);
 
     }
 
-    public Chain(List<Amminoacid> amminoChain, String chainString) {
+    Chain(List<Amminoacid> amminoChain, String chainString) {
         this.amminoChain = amminoChain;
         this.chainString = chainString;
         this.evaluator = new ChainFitnessEvaluator(this);
@@ -39,7 +42,7 @@ public class Chain {
         return evaluator;
     }
 
-    public List<Direction> getDirections() {
+    List<Direction> getDirections() {
         return directions;
     }
 
@@ -63,7 +66,7 @@ public class Chain {
         this.chainString = chainString;
     }
 
-    public void generateDirections() {
+    void generateDirections() {
         Random rand = new Random();
         directions = new ArrayList<>();
 
@@ -85,18 +88,14 @@ public class Chain {
         }
     }
 
-    public boolean readChar(int i) {
-        if (chainString.charAt(i) == '0')
-            return true;
-        else return false;
+    private boolean readChar(int i) {
+        return chainString.charAt(i) == '0';
     }
 
-    public void generateChain() {
-        generateDirections();
+    void generateChain() {
+        //generateDirections();
 
-        if (amminoChain != null)
-            amminoChain.removeAll(amminoChain);
-        else amminoChain = new ArrayList<>();
+        amminoChain = new ArrayList<>();
         amminoChain.add(new Amminoacid(5, 5, readChar(0)));
 
         for (int i = 1; i < chainString.length(); i++) {

@@ -11,19 +11,15 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Chain c = new Chain("1001000");
-        c.generateDirections();
-        c.generateChain();
+        Population p = new Population("1000100");
 
-        while(c.getEvaluator().measureFitness() < 0.2){
-            c.generateDirections();
-            c.generateChain();
+        p.initPopulation();
+        new PopulationVisualizer(p);
+
+        while (p.getGeneration() < 2) {
+            p.mutate();
+            p.weightedSelection();
         }
-
-        //c.printChainConnections();
-        System.out.println(c.getEvaluator().measureFitness());
-
-        new ChainVisualizer(c);
 
 
     }

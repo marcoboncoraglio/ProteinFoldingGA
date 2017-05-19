@@ -17,13 +17,13 @@ import Model.Population;
  * Created by marco on 13/05/17.
  */
 public class PopulationVisualizer {
-    Population population;
-    int currentGeneration;
-    double averageFitness;
-    double currentHigh;
-    double allTimeHigh;
+    private Population population;
+    private int currentGeneration;
+    private double averageFitness;
+    private double currentHigh;
+    private double allTimeHigh;
 
-    public PopulationVisualizer(Population p, int total) {
+    public PopulationVisualizer(Population p) {
         // Create a chart:
         this.population = p;
 

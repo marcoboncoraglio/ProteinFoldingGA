@@ -11,7 +11,7 @@ public class Amminoacid {
     private int x;
     private int y;
 
-    public Amminoacid(int x, int y, boolean isHydrophobic) {
+    Amminoacid(int x, int y, boolean isHydrophobic) {
         this.x = x;
         this.y = y;
         this.isHydrophobic = isHydrophobic;
@@ -25,11 +25,11 @@ public class Amminoacid {
         return y;
     }
 
-    public Amminoacid getLeft() {
+    Amminoacid getLeft() {
         return left;
     }
 
-    public Amminoacid getRight() {
+    Amminoacid getRight() {
         return right;
     }
 
@@ -38,17 +38,15 @@ public class Amminoacid {
     }
 
 
-    public void setLeft(Amminoacid left) {
+    void setLeft(Amminoacid left) {
         this.left = left;
     }
 
-    public void setRight(Amminoacid right) {
+    void setRight(Amminoacid right) {
         this.right = right;
     }
 
-    public boolean isConnected(Amminoacid a){
-        if(a.getRight() == this || a.getLeft() == this)
-            return true;
-        else return false;
+    public boolean isConnected(Amminoacid a) {
+        return a.getRight() == this || a.getLeft() == this;
     }
 }

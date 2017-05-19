@@ -14,6 +14,7 @@ public class Population {
     private String chainString;
     private int generation;
     public int populationSize = 30;
+    private int mutationRate = 1;
     private PopulationFitnessEvaluator evaluator;
 
     public List<Chain> getChainPopulation() {
@@ -38,26 +39,28 @@ public class Population {
         }
 
         for (Chain c : chainPopulation) {
+            c.generateDirections();
             c.generateChain();
             if (c.getEvaluator().measureFitness() < 1) {
+                c.generateDirections();
                 c.generateChain();
             }
         }
     }
 
-    public void setChainPopulation(List<Chain> chainPopulation) {
+    private void setChainPopulation(List<Chain> chainPopulation) {
         this.chainPopulation = chainPopulation;
     }
 
     public void weightedSelection() {
         Random randGenerator = new Random();
-        float randNum = 0;
+        float randNum;
 
-        ArrayList<Chain> selectedPopulation = new ArrayList();
+        ArrayList<Chain> selectedPopulation = new ArrayList<>();
         int index = 0;
         double fitnessPerChain;
 
-        for(Chain c: chainPopulation) {
+        for (Chain c : chainPopulation) {
             randNum = randGenerator.nextFloat() * evaluator.measureTotalFitness();
             fitnessPerChain = c.getEvaluator().measureFitness();
 
@@ -82,9 +85,30 @@ public class Population {
     public int getGeneration() {
         return generation;
     }
+
+    public void mutate() {
+        int totalMutations = populationSize * chainString.length() * mutationRate / 100;
+        int chainMutationIndex;
+
+        Random rand = new Random();
+
+        for (int i = 0; i < totalMutations; i++) {
+            chainMutationIndex = rand.nextInt(populationSize * chainString.length());
+
+            for (Chain c : chainPopulation) {
+                if (chainMutationIndex - chainString.length() < 0) {
+                    int mutateDirection = rand.nextInt(4);
+                    System.out.println("Direction index: " + chainMutationIndex);
+                    System.out.println("Direction mutation: " + mutateDirection);
+                    //Direction arraylist becomes null after i=3
+                    c.getDirections().set(chainMutationIndex, Chain.Direction.values()[mutateDirection]);
+                    c.generateChain();
+                    break;
+                } else {
+                    chainMutationIndex -= c.getAmminoChain().size();
+                }
+            }
+        }
+
+    }
 }
-
-//write to file: average fitness per generation, highest fitness per generation, all time highest fitness!
-//mutation and crossover still to implement!
-
-//if I have free time, use java 2d graphics for chain view
