@@ -29,8 +29,12 @@ public class Population {
         evaluator = new PopulationFitnessEvaluator(this);
     }
 
+    public String getChainString() {
+        return chainString;
+    }
+
     public Population(Population p) {
-        this.chainPopulation = new ArrayList<>(p.chainPopulation);
+        this.chainPopulation = p.chainPopulation;
         this.chainString = p.chainString;
         this.generation = p.generation;
         this.populationSize = p.populationSize;

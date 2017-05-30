@@ -18,7 +18,7 @@ public class ChainVisualizer extends Frame {
 
     public ChainVisualizer(Chain c) {
         super("Chain Visualizer");
-        setSize(800, 600);
+        setSize(1200, 800);
         setBackground(Color.white);
 
         addWindowListener(new WindowAdapter() {
@@ -69,9 +69,9 @@ public class ChainVisualizer extends Frame {
 
         for (int i = 0; i < chain.getAmminoChain().size(); i++) {
             if (chain.getAmminoChain().get(i).isHydrophobic())
-                g2d.fillOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 35, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 35, 10, 10);
+                g2d.fillOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 35, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 35, 5, 5);
             else
-                g2d.drawOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 35, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 35, 10, 10);
+                g2d.drawOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 35, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 35, 5, 5);
 
             if (i != 0)
                 g2d.drawLine(abs(center[0]) + chain.getAmminoChain().get(i - 1).getX() * 35,

@@ -2,6 +2,8 @@ import Model.Population;
 import Visualizers.ChainVisualizer;
 import Visualizers.PopulationVisualizer;
 
+import java.util.Scanner;
+
 /**
  * Created by marco on 11/05/17.
  */
@@ -14,13 +16,13 @@ public class Main {
         p.initPopulation();
         new PopulationVisualizer(p);
 
-        while (p.getEvaluator().measureAverageFitness() < 2) {
+        while (p.getGeneration() < 500) {
             p.mutate();
             p.fitnessProportionalSelection();
             p.onePointCrossover();
             System.out.println(p.getGeneration());
         }
 
-        new ChainVisualizer(p.getEvaluator().getHighestFitnessChain());
+        new ChainVisualizer(p.getEvaluator().getAllTimeFittest());
     }
 }

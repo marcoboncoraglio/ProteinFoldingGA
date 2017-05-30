@@ -26,16 +26,17 @@ public class Chain {
     private String chainString;
     private ChainFitnessEvaluator evaluator;
 
-    Chain(String chainString) {
+    public Chain(String chainString) {
         this.chainString = chainString;
         this.evaluator = new ChainFitnessEvaluator(this);
 
     }
 
-    Chain(List<Amminoacid> amminoChain, String chainString) {
-        this.amminoChain = amminoChain;
-        this.chainString = chainString;
-        this.evaluator = new ChainFitnessEvaluator(this);
+    public Chain(Chain c){
+        this.directions = new ArrayList<>(c.directions);
+        this.amminoChain = new ArrayList<>(c.amminoChain);
+        this.chainString = c.chainString;
+        this.evaluator = c.evaluator;
     }
 
     public ChainFitnessEvaluator getEvaluator() {
@@ -54,19 +55,7 @@ public class Chain {
         return amminoChain;
     }
 
-    public void setAmminoChain(List<Amminoacid> amminoChain) {
-        this.amminoChain = amminoChain;
-    }
-
-    public String getChainString() {
-        return chainString;
-    }
-
-    public void setChainString(String chainString) {
-        this.chainString = chainString;
-    }
-
-    void generateDirections() {
+    public void generateDirections() {
         Random rand = new Random();
         directions = new ArrayList<>();
 
@@ -92,7 +81,7 @@ public class Chain {
         return chainString.charAt(i) == '0';
     }
 
-    void generateChain() {
+    public void generateChain() {
         //generateDirections();
 
         amminoChain = new ArrayList<>();

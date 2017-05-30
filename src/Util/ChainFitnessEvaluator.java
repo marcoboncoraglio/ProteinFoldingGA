@@ -18,12 +18,14 @@ public class ChainFitnessEvaluator {
         //check for overlapping amminoacids
 
         this.overlapping = 0;
+        Chain tmpChain = new Chain(chain);
+        tmpChain.generateChain();
 
-        for (int i = 0; i < chain.getAmminoChain().size(); i++) {
-            for (int j = 0; j < chain.getAmminoChain().size(); j++) {
-                if (chain.getAmminoChain().get(i) != chain.getAmminoChain().get(j) &&
-                        chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX() &&
-                        chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY()) {
+        for (int i = 0; i < tmpChain.getAmminoChain().size(); i++) {
+            for (int j = 0; j < tmpChain.getAmminoChain().size(); j++) {
+                if (tmpChain.getAmminoChain().get(i) != tmpChain.getAmminoChain().get(j) &&
+                        tmpChain.getAmminoChain().get(i).getX() == tmpChain.getAmminoChain().get(j).getX() &&
+                        tmpChain.getAmminoChain().get(i).getY() == tmpChain.getAmminoChain().get(j).getY()) {
                     overlapping++;
                 }
             }
@@ -32,18 +34,19 @@ public class ChainFitnessEvaluator {
 
     public double measureFitness() {
         checkConnections();
-
+        Chain tmpChain = new Chain(chain);
+        tmpChain.generateChain();
         double fitness = 0;
 
-        for (int i = 0; i < chain.getAmminoChain().size(); i++) {
-            for (int j = 0; j < chain.getAmminoChain().size(); j++) {
+        for (int i = 0; i < tmpChain.getAmminoChain().size(); i++) {
+            for (int j = 0; j < tmpChain.getAmminoChain().size(); j++) {
                 //are both hydrophobic and not connected?
-                if ((chain.getAmminoChain().get(i).isHydrophobic() && chain.getAmminoChain().get(j).isHydrophobic()) && !chain.getAmminoChain().get(i).isConnected(chain.getAmminoChain().get(j))) {
+                if ((tmpChain.getAmminoChain().get(i).isHydrophobic() && tmpChain.getAmminoChain().get(j).isHydrophobic()) && !tmpChain.getAmminoChain().get(i).isConnected(tmpChain.getAmminoChain().get(j))) {
                     //are they neighbours
-                    if (chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX() - 1 && chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY()
-                            || chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX() + 1 && chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY()
-                            || chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY() - 1 && chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX()
-                            || chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY() + 1 && chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX()) {
+                    if (tmpChain.getAmminoChain().get(i).getX() == tmpChain.getAmminoChain().get(j).getX() - 1 && tmpChain.getAmminoChain().get(i).getY() == tmpChain.getAmminoChain().get(j).getY()
+                            || tmpChain.getAmminoChain().get(i).getX() == tmpChain.getAmminoChain().get(j).getX() + 1 && tmpChain.getAmminoChain().get(i).getY() == tmpChain.getAmminoChain().get(j).getY()
+                            || tmpChain.getAmminoChain().get(i).getY() == tmpChain.getAmminoChain().get(j).getY() - 1 && tmpChain.getAmminoChain().get(i).getX() == tmpChain.getAmminoChain().get(j).getX()
+                            || tmpChain.getAmminoChain().get(i).getY() == tmpChain.getAmminoChain().get(j).getY() + 1 && tmpChain.getAmminoChain().get(i).getX() == tmpChain.getAmminoChain().get(j).getX()) {
                         fitness++;
 
                     }
