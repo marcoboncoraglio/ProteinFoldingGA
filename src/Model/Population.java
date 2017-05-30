@@ -14,7 +14,8 @@ public class Population {
     private String chainString;
     private int generation;
     public int populationSize = 30;
-    private int mutationRate = 1;
+    private final int mutationRate = 1;
+    private final int crossoverRate = 1;
     private PopulationFitnessEvaluator evaluator;
 
     public List<Chain> getChainPopulation() {
@@ -26,6 +27,14 @@ public class Population {
         this.chainPopulation = new ArrayList<>();
         this.generation = 0;
         evaluator = new PopulationFitnessEvaluator(this);
+    }
+
+    public Population(Population p) {
+        this.chainPopulation = new ArrayList<>(p.chainPopulation);
+        this.chainString = p.chainString;
+        this.generation = p.generation;
+        this.populationSize = p.populationSize;
+        this.evaluator = p.evaluator;
     }
 
     public PopulationFitnessEvaluator getEvaluator() {
@@ -52,7 +61,7 @@ public class Population {
         this.chainPopulation = chainPopulation;
     }
 
-    public void weightedSelection() {
+    public void fitnessProportionalSelection() {
         Random randGenerator = new Random();
         float randNum;
 
@@ -93,7 +102,7 @@ public class Population {
         Random rand = new Random();
 
         for (int i = 0; i < totalMutations; i++) {
-            chainMutationIndex = rand.nextInt(populationSize * chainString.length());
+            chainMutationIndex = rand.nextInt(populationSize * chainPopulation.size());
 
             for (Chain c : chainPopulation) {
                 if (chainMutationIndex - chainString.length() < 0) {
@@ -106,6 +115,44 @@ public class Population {
                 }
             }
         }
+    }
 
+    public void onePointCrossover(){
+        int totalCrossovers = populationSize * crossoverRate/100;
+        int crossoverIndex;
+
+        List<Chain.Direction> dir1new = new ArrayList<>();
+        List<Chain.Direction> dir2new = new ArrayList<>();
+
+        Random rand = new Random();
+
+        //for each onePointCrossover
+        for(int i =0; i< totalCrossovers; i++){
+            crossoverIndex = rand.nextInt(chainString.length());
+
+            //grab two random chains from our population
+            int chain1Index = rand.nextInt(chainPopulation.size());
+            int chain2Index = rand.nextInt(chainPopulation.size());
+            Chain c1 = chainPopulation.get(chain1Index);
+            Chain c2 = chainPopulation.get(chain2Index);
+
+            //copy first half
+            for (int j=0; j<crossoverIndex; j++){
+                dir1new.add(c1.getDirections().get(j));
+                dir2new.add(c2.getDirections().get(j));
+            }
+
+            //copy second half
+            for(int k=chainPopulation.size(); k-crossoverIndex >= 0; k-- ){
+                dir1new.add(c2.getDirections().get(k));
+                dir2new.add(c1.getDirections().get(k));
+            }
+
+            //set onePointCrossover chains and generate them
+            c1.setDirections(dir1new);
+            c2.setDirections(dir2new);
+            chainPopulation.get(chain1Index).generateChain();
+            chainPopulation.get(chain2Index).generateChain();
+        }
     }
 }

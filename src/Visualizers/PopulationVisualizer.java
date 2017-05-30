@@ -64,11 +64,15 @@ public class PopulationVisualizer {
 
             @Override
             public void run() {
+                Population tmpPopulation;
 
-                currentHigh = population.getEvaluator().getHighestFitnessChain().getEvaluator().measureFitness(); //maybe optimize a bit?
-                allTimeHigh = population.getEvaluator().getHighestRecordedFitness();
-                currentGeneration = population.getGeneration();
-                averageFitness = population.getEvaluator().measureAverageFitness();
+                tmpPopulation = new Population(population);
+
+
+                currentHigh = tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().measureFitness(); //maybe optimize a bit?
+                allTimeHigh = tmpPopulation.getEvaluator().getHighestRecordedFitness();
+                currentGeneration = tmpPopulation.getGeneration();
+                averageFitness = tmpPopulation.getEvaluator().measureAverageFitness();
                 averageFitnessChart.addPoint(currentGeneration, averageFitness);
                 currentHighest.addPoint(currentGeneration, currentHigh);
                 allTimeHighest.addPoint(currentGeneration, allTimeHigh);
@@ -76,7 +80,7 @@ public class PopulationVisualizer {
 
         };
 
-        timer.schedule(task, 1, 500);
+        timer.schedule(task, 100, 1000);
     }
 }
 

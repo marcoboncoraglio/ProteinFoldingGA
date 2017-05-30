@@ -9,6 +9,7 @@ import Model.Population;
 public class PopulationFitnessEvaluator {
     Population p;
     private double highestRecordedFitness = 0;
+    private float totalFitness = 0;
 
     public PopulationFitnessEvaluator(Population p) {
         this.p = p;
@@ -21,6 +22,7 @@ public class PopulationFitnessEvaluator {
             total += c.getEvaluator().measureFitness();
         }
 
+        totalFitness = total;
         return total;
     }
 
@@ -29,9 +31,7 @@ public class PopulationFitnessEvaluator {
     }
 
     public float measureAverageFitness() {
-        float average = 0;
-
-        return measureTotalFitness() / p.populationSize;
+        return totalFitness / p.populationSize;
     }
 
     public Chain getHighestFitnessChain() {

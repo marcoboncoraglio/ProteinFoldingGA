@@ -1,6 +1,4 @@
-import Model.Chain;
 import Model.Population;
-import Util.PopulationFileOutput;
 import Visualizers.ChainVisualizer;
 import Visualizers.PopulationVisualizer;
 
@@ -14,13 +12,13 @@ public class Main {
         Population p = new Population("101010011110101000101101011100101110110110111000101011101011101010010101110110111100100");
 
         p.initPopulation();
+        new PopulationVisualizer(p);
 
-        //concurrency issues :(
-        //new PopulationVisualizer(p);
-
-        while (p.getGeneration() < 200) {
+        while (p.getEvaluator().measureAverageFitness() < 2) {
             p.mutate();
-            p.weightedSelection();
+            p.fitnessProportionalSelection();
+            p.onePointCrossover();
+            System.out.println(p.getGeneration());
         }
 
         new ChainVisualizer(p.getEvaluator().getHighestFitnessChain());
