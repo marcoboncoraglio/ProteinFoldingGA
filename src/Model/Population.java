@@ -72,7 +72,7 @@ public class Population {
                 }
             }
 
-            selectedPopulation.add(new Chain(chainPopulation.get(index).getAmminoChain(), chainString));
+            selectedPopulation.add(chainPopulation.get(index));
 
         }
 
@@ -98,9 +98,6 @@ public class Population {
             for (Chain c : chainPopulation) {
                 if (chainMutationIndex - chainString.length() < 0) {
                     int mutateDirection = rand.nextInt(4);
-                    System.out.println("Direction index: " + chainMutationIndex);
-                    System.out.println("Direction mutation: " + mutateDirection);
-                    //Direction arraylist becomes null after i=3
                     c.getDirections().set(chainMutationIndex, Chain.Direction.values()[mutateDirection]);
                     c.generateChain();
                     break;

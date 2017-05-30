@@ -46,13 +46,6 @@ public class ChainFitnessEvaluator {
                             || chain.getAmminoChain().get(i).getY() == chain.getAmminoChain().get(j).getY() + 1 && chain.getAmminoChain().get(i).getX() == chain.getAmminoChain().get(j).getX()) {
                         fitness++;
 
-                        /*
-                        System.out.println("Amminoacid i: " + i + " " + chain.getAmminoChain().get(i).getX() + ";" + chain.getAmminoChain().get(i).getY() + " " + chain.getAmminoChain().get(i).isHydrophobic());
-                        System.out.println("Amminoacid j: " + j + " " + chain.getAmminoChain().get(j).getX() + ";" + chain.getAmminoChain().get(j).getY() + " " + chain.getAmminoChain().get(j).isHydrophobic());
-                        System.out.println("Are Connected: " + chain.getAmminoChain().get(i).isConnected(chain.getAmminoChain().get(j)));
-                        System.out.println();
-                        */
-
                     }
 
                 }
@@ -61,7 +54,7 @@ public class ChainFitnessEvaluator {
         }
 
         if (overlapping > 0) {
-            return fitness/(overlapping*100);
+            return fitness/(overlapping*1000);
         }
         return fitness / 2;
     }
