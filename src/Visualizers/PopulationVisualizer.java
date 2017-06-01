@@ -45,6 +45,7 @@ public class PopulationVisualizer {
         // Make it visible:
         // Create a frame.
         JFrame frame = new JFrame("Population Statistics");
+
         // add the chart to the frame:
         frame.getContentPane().add(chart);
         frame.setSize(800, 600);
@@ -64,18 +65,24 @@ public class PopulationVisualizer {
 
             @Override
             public void run() {
-                Population tmpPopulation;
 
-                tmpPopulation = new Population(population);
-
-
-                currentHigh = tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().measureFitness(); //maybe optimize a bit?
+                //due to concurrency issues with main thread
+                Population tmpPopulation = new Population(population);
+                currentHigh = tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getCurrentFitness(); //maybe optimize a bit?
                 allTimeHigh = tmpPopulation.getEvaluator().getHighestRecordedFitness();
                 currentGeneration = tmpPopulation.getGeneration();
                 averageFitness = tmpPopulation.getEvaluator().measureAverageFitness();
                 averageFitnessChart.addPoint(currentGeneration, averageFitness);
                 currentHighest.addPoint(currentGeneration, currentHigh);
                 allTimeHighest.addPoint(currentGeneration, allTimeHigh);
+
+                System.out.println("generation: " +currentGeneration);
+                System.out.println("average: " + averageFitness);
+                System.out.println("current highest chain: " +currentHigh);
+                System.out.println("current highest overlapping: " + tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getOverlapping());
+                System.out.println("all time highest: " + allTimeHigh);
+                System.out.println("all time highest overlapping: " + tmpPopulation.getEvaluator().getAllTimeFittest().getEvaluator().getOverlapping());
+                System.out.println("------------------");
             }
 
         };

@@ -13,7 +13,7 @@ public class Population {
     private List<Chain> chainPopulation;
     private String chainString;
     private int generation;
-    public int populationSize = 30;
+    public int populationSize = 200;
     private final int mutationRate = 1;
     private final int crossoverRate = 1;
     private PopulationFitnessEvaluator evaluator;
@@ -54,7 +54,8 @@ public class Population {
         for (Chain c : chainPopulation) {
             c.generateDirections();
             c.generateChain();
-            if (c.getEvaluator().measureFitness() < 1) {
+            c.getEvaluator().measureFitness();
+            if (c.getEvaluator().getCurrentFitness() < 1) {
                 c.generateDirections();
                 c.generateChain();
             }
@@ -63,6 +64,10 @@ public class Population {
 
     private void setChainPopulation(List<Chain> chainPopulation) {
         this.chainPopulation = chainPopulation;
+    }
+
+    public int getGeneration() {
+        return generation;
     }
 
     public void fitnessProportionalSelection() {
@@ -75,7 +80,7 @@ public class Population {
 
         for (Chain c : chainPopulation) {
             randNum = randGenerator.nextFloat() * evaluator.measureTotalFitness();
-            fitnessPerChain = c.getEvaluator().measureFitness();
+            fitnessPerChain = c.getEvaluator().getCurrentFitness();
 
             for (int i = 0; i < chainPopulation.size(); i++) {
                 randNum -= fitnessPerChain;
@@ -95,11 +100,7 @@ public class Population {
         this.setChainPopulation(selectedPopulation);
     }
 
-    public int getGeneration() {
-        return generation;
-    }
-
-    public void mutate() {
+    public void randomResettingMutation() {
         int totalMutations = populationSize * chainString.length() * mutationRate / 100;
         int chainMutationIndex;
 
@@ -132,7 +133,7 @@ public class Population {
 
         //for each onePointCrossover
         for(int i =0; i< totalCrossovers; i++){
-            crossoverIndex = rand.nextInt(chainString.length());
+            crossoverIndex = rand.nextInt(chainString.length()-1);
 
             //grab two random chains from our population
             int chain1Index = rand.nextInt(chainPopulation.size());
@@ -147,7 +148,7 @@ public class Population {
             }
 
             //copy second half
-            for(int k=chainPopulation.size(); k-crossoverIndex >= 0; k-- ){
+            for(int k=crossoverIndex+1; k < chainString.length(); k++ ){
                 dir1new.add(c2.getDirections().get(k));
                 dir2new.add(c1.getDirections().get(k));
             }

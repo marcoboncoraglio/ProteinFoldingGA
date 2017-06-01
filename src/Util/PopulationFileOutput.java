@@ -24,7 +24,7 @@ public class PopulationFileOutput {
             PrintWriter out = new PrintWriter(bw);
 
             out.println(p.getEvaluator().measureAverageFitness()
-                    + ";" + p.getEvaluator().getHighestFitnessChain().getEvaluator().measureFitness()
+                    + ";" + p.getEvaluator().getHighestFitnessChain().getEvaluator().getCurrentFitness()
                     + ";" + p.getEvaluator().getHighestRecordedFitness());
             out.close();
         } catch (IOException e) {

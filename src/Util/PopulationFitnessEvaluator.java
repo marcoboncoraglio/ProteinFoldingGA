@@ -31,7 +31,8 @@ public class PopulationFitnessEvaluator {
         float total = 0;
 
         for (Chain c : p.getChainPopulation()) {
-            total += c.getEvaluator().measureFitness();
+            c.getEvaluator().measureFitness();
+            total += c.getEvaluator().getCurrentFitness();
         }
 
         totalFitness = total;
@@ -51,8 +52,8 @@ public class PopulationFitnessEvaluator {
         int index = 0;
 
         for (int i = 0; i < p.getChainPopulation().size(); i++) {
-            if (p.getChainPopulation().get(i).getEvaluator().measureFitness() > highestValue) {
-                highestValue = p.getChainPopulation().get(i).getEvaluator().measureFitness();
+            if (p.getChainPopulation().get(i).getEvaluator().getCurrentFitness() > highestValue) {
+                highestValue = p.getChainPopulation().get(i).getEvaluator().getCurrentFitness();
                 if (highestValue > highestRecordedFitness) {
                     highestRecordedFitness = highestValue;
                 }
@@ -60,7 +61,7 @@ public class PopulationFitnessEvaluator {
             }
         }
 
-        if(p.getChainPopulation().get(index).getEvaluator().measureFitness() > allTimeFittest.getEvaluator().measureFitness()){
+        if(p.getChainPopulation().get(index).getEvaluator().getCurrentFitness() > allTimeFittest.getEvaluator().getCurrentFitness()){
             allTimeFittest = new Chain(p.getChainPopulation().get(index));
         }
 
