@@ -37,7 +37,6 @@ public class Amminoacid {
         return isHydrophobic;
     }
 
-
     void setLeft(Amminoacid left) {
         this.left = left;
     }

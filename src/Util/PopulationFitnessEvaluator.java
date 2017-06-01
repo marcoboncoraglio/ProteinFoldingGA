@@ -10,7 +10,12 @@ public class PopulationFitnessEvaluator {
     Population p;
     private double highestRecordedFitness = 0;
     private float totalFitness = 0;
-    private Chain allTimeFittest;
+    private Chain highestRecordedFitnessChain;
+    private float allTimeFittestFitness;
+
+    public float getAllTimeFittestFitness() {
+        return allTimeFittestFitness;
+    }
 
     public PopulationFitnessEvaluator(Population p) {
         this.p = p;
@@ -18,13 +23,13 @@ public class PopulationFitnessEvaluator {
     }
 
     private void initFittest(){
-        allTimeFittest = new Chain(p.getChainString());
-        allTimeFittest.generateDirections();
-        allTimeFittest.generateChain();
+        highestRecordedFitnessChain = new Chain(p.getChainString());
+        highestRecordedFitnessChain.generateDirections();
+        highestRecordedFitnessChain.generateChain();
     }
 
-    public Chain getAllTimeFittest() {
-        return allTimeFittest;
+    public Chain getHighestRecordedFitnessChain() {
+        return highestRecordedFitnessChain;
     }
 
     public float measureTotalFitness() {
@@ -61,8 +66,9 @@ public class PopulationFitnessEvaluator {
             }
         }
 
-        if(p.getChainPopulation().get(index).getEvaluator().getCurrentFitness() > allTimeFittest.getEvaluator().getCurrentFitness()){
-            allTimeFittest = new Chain(p.getChainPopulation().get(index));
+        allTimeFittestFitness = (float) highestRecordedFitnessChain.getEvaluator().getCurrentFitness();
+        if(p.getChainPopulation().get(index).getEvaluator().getCurrentFitness() > allTimeFittestFitness){
+            highestRecordedFitnessChain = new Chain(p.getChainPopulation().get(index));
         }
 
         return p.getChainPopulation().get(index);

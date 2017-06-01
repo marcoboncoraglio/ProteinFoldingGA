@@ -9,22 +9,22 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Population p = new Population("101010011110101000101101011100101110110110111000101011101011101010010101110110111100100");
+        Population p = new Population("01010001011010");
 
         p.initPopulation();
         new PopulationVisualizer(p);
         //PopulationFileOutput output = new PopulationFileOutput(p);
 
 
-        while (p.getGeneration() < 50) {
+        while (p.getEvaluator().getAllTimeFittestFitness() < 3) {
 
             p.fitnessProportionalSelection();
-            p.randomResettingMutation();
-            p.onePointCrossover();
+            //p.randomResettingMutation();
+            //p.onePointCrossover();
             //output.printData();
         }
 
-        new ChainVisualizer(p.getEvaluator().getAllTimeFittest());
-        System.out.println("Overlapping: " + p.getEvaluator().getAllTimeFittest().getEvaluator().getOverlapping());
+        new ChainVisualizer(p.getEvaluator().getHighestRecordedFitnessChain());
+        System.out.println("Overlapping: " + p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
     }
 }

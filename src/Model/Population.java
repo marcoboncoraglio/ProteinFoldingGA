@@ -9,13 +9,15 @@ import java.util.Random;
 /**
  * Created by marco on 11/05/17.
  */
+//TODO: implement tournament selection
+//TODO: measure genetic diversity (how many chains are the same in population)
 public class Population {
     private List<Chain> chainPopulation;
     private String chainString;
     private int generation;
     public int populationSize = 200;
-    private final int mutationRate = 1;
-    private final int crossoverRate = 1;
+    private final int mutationRate = 5;
+    private final int crossoverRate = 70;
     private PopulationFitnessEvaluator evaluator;
 
     public List<Chain> getChainPopulation() {
@@ -54,11 +56,6 @@ public class Population {
         for (Chain c : chainPopulation) {
             c.generateDirections();
             c.generateChain();
-            c.getEvaluator().measureFitness();
-            if (c.getEvaluator().getCurrentFitness() < 1) {
-                c.generateDirections();
-                c.generateChain();
-            }
         }
     }
 
@@ -70,9 +67,10 @@ public class Population {
         return generation;
     }
 
+    //TODO: Rework fitnessProportionalSelection
     public void fitnessProportionalSelection() {
         Random randGenerator = new Random();
-        float randNum;
+        double randNum;
 
         ArrayList<Chain> selectedPopulation = new ArrayList<>();
         int index = 0;
@@ -80,23 +78,18 @@ public class Population {
 
         for (Chain c : chainPopulation) {
             randNum = randGenerator.nextFloat() * evaluator.measureTotalFitness();
-            fitnessPerChain = c.getEvaluator().getCurrentFitness();
 
             for (int i = 0; i < chainPopulation.size(); i++) {
+                fitnessPerChain = chainPopulation.get(i).getEvaluator().getCurrentFitness();
                 randNum -= fitnessPerChain;
                 if (randNum <= 0) {
                     index = i;
                     break;
                 }
             }
-
             selectedPopulation.add(chainPopulation.get(index));
-
         }
-
-
         generation++;
-
         this.setChainPopulation(selectedPopulation);
     }
 

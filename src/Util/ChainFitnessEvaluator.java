@@ -68,8 +68,11 @@ public class ChainFitnessEvaluator {
         }
 
         if (overlapping > 0) {
-            currentFitness = fitness / (overlapping * 1000);
-        } else {
+            currentFitness = fitness / Math.pow(overlapping+1, 2);
+        } else if(fitness == 0 && overlapping == 0){
+            currentFitness = 1;
+        }
+        else{
             currentFitness = fitness / 2;
         }
     }

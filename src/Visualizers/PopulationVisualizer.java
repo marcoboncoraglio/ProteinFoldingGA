@@ -81,7 +81,7 @@ public class PopulationVisualizer {
                 System.out.println("current highest chain: " +currentHigh);
                 System.out.println("current highest overlapping: " + tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getOverlapping());
                 System.out.println("all time highest: " + allTimeHigh);
-                System.out.println("all time highest overlapping: " + tmpPopulation.getEvaluator().getAllTimeFittest().getEvaluator().getOverlapping());
+                System.out.println("all time highest overlapping: " + tmpPopulation.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
                 System.out.println("------------------");
             }
 
