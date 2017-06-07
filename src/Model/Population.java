@@ -5,6 +5,8 @@ import Util.PopulationFitnessEvaluator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 /**
  * Created by marco on 11/05/17.
@@ -15,10 +17,11 @@ public class Population {
     private List<Chain> chainPopulation;
     private String chainString;
     private int generation;
-    public int populationSize = 200;
+    public int populationSize = 500;
     private final int mutationRate = 5;
     private final int crossoverRate = 70;
     private PopulationFitnessEvaluator evaluator;
+    private final int numberOfElites = 10;
 
     public List<Chain> getChainPopulation() {
         return chainPopulation;
@@ -75,9 +78,10 @@ public class Population {
         ArrayList<Chain> selectedPopulation = new ArrayList<>();
         int index = 0;
         double fitnessPerChain;
+        float totalFiness = evaluator.measureTotalFitness();
 
         for (Chain c : chainPopulation) {
-            randNum = randGenerator.nextFloat() * evaluator.measureTotalFitness();
+            randNum = randGenerator.nextFloat() * totalFiness;
 
             for (int i = 0; i < chainPopulation.size(); i++) {
                 fitnessPerChain = chainPopulation.get(i).getEvaluator().getCurrentFitness();
@@ -91,6 +95,49 @@ public class Population {
         }
         generation++;
         this.setChainPopulation(selectedPopulation);
+    }
+
+    public void fitnessProportialSelectionWithElitism() {
+        Random randGenerator = new Random();
+        double randNum;
+
+        ArrayList<Chain> selectedPopulation = new ArrayList<>();
+        int index = 0;
+        double fitnessPerChain;
+
+        float totalFitness = evaluator.measureTotalFitness();
+
+        for (int i = numberOfElites; i < chainPopulation.size(); i++) {
+            randNum = randGenerator.nextFloat() * totalFitness;
+
+            for (int j = 0; j < chainPopulation.size(); j++) {
+                fitnessPerChain = chainPopulation.get(i).getEvaluator().getCurrentFitness();
+                randNum -= fitnessPerChain;
+                if (randNum <= 0) {
+                    index = j;
+                    break;
+                }
+            }
+            selectedPopulation.add(chainPopulation.get(index));
+        }
+
+
+        //elitism for the best 10 chains
+        Object[] oarr = chainPopulation.stream().sorted((chain, t1) -> {
+            if (chain.getEvaluator().getCurrentFitness() > t1.getEvaluator().getCurrentFitness())
+                return -1;
+            else if (chain.getEvaluator().getCurrentFitness() == t1.getEvaluator().getCurrentFitness())
+                return 0;
+            else return 1;
+        }).toArray();
+
+        for (int i = 0; i < numberOfElites; i++) {
+            selectedPopulation.add((Chain) oarr[i]);
+        }
+
+        generation++;
+        this.setChainPopulation(selectedPopulation);
+
     }
 
     public void randomResettingMutation() {
@@ -115,8 +162,8 @@ public class Population {
         }
     }
 
-    public void onePointCrossover(){
-        int totalCrossovers = populationSize * crossoverRate/100;
+    public void onePointCrossover() {
+        int totalCrossovers = populationSize * crossoverRate / 100;
         int crossoverIndex;
 
         List<Chain.Direction> dir1new = new ArrayList<>();
@@ -125,8 +172,8 @@ public class Population {
         Random rand = new Random();
 
         //for each onePointCrossover
-        for(int i =0; i< totalCrossovers; i++){
-            crossoverIndex = rand.nextInt(chainString.length()-1);
+        for (int i = 0; i < totalCrossovers; i++) {
+            crossoverIndex = rand.nextInt(chainString.length() - 1);
 
             //grab two random chains from our population
             int chain1Index = rand.nextInt(chainPopulation.size());
@@ -135,13 +182,13 @@ public class Population {
             Chain c2 = chainPopulation.get(chain2Index);
 
             //copy first half
-            for (int j=0; j<crossoverIndex; j++){
+            for (int j = 0; j < crossoverIndex; j++) {
                 dir1new.add(c1.getDirections().get(j));
                 dir2new.add(c2.getDirections().get(j));
             }
 
             //copy second half
-            for(int k=crossoverIndex+1; k < chainString.length(); k++ ){
+            for (int k = crossoverIndex + 1; k < chainString.length(); k++) {
                 dir1new.add(c2.getDirections().get(k));
                 dir2new.add(c1.getDirections().get(k));
             }
