@@ -69,9 +69,9 @@ public class ChainVisualizer extends Frame {
 
         for (int i = 0; i < chain.getAmminoChain().size(); i++) {
             if (chain.getAmminoChain().get(i).isHydrophobic())
-                g2d.fillOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30, 5, 5);
+                g2d.fillOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30, 4, 4);
             else
-                g2d.drawOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30, 5, 5);
+                g2d.drawOval(abs(center[0]) + chain.getAmminoChain().get(i).getX() * 30, abs(center[1]) + chain.getAmminoChain().get(i).getY() * 30, 4, 4);
 
             if (i != 0)
                 g2d.drawLine(abs(center[0]) + chain.getAmminoChain().get(i - 1).getX() * 30,

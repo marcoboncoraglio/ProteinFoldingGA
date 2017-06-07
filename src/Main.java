@@ -17,14 +17,14 @@ public class Main {
 
 
         do {
-            //p.fitnessProportialSelectionWithElitism();
-            p.fitnessProportionalSelection();
-            p.randomResettingMutation();
-            p.onePointCrossover();
+            p.getBreeder().fitnessProportialSelectionWithElitism();
+            //p.fitnessProportionalSelection();
+            p.getBreeder().randomResettingMutation();
+            p.getBreeder().onePointCrossover();
             //output.printData();
-        } while (p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getCurrentFitness() != 10);
+        } while (p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping() != 0);
 
         new ChainVisualizer(p.getEvaluator().getHighestRecordedFitnessChain());
-        System.out.println("Overlapping: " + p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
+        System.out.println("FINAL OVERLAPPING!!!!!!: " + p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
     }
 }

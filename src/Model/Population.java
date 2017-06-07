@@ -1,10 +1,9 @@
 package Model;
 
+import Util.PopulationBreeder;
 import Util.PopulationFitnessEvaluator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
@@ -16,12 +15,10 @@ import java.util.stream.DoubleStream;
 public class Population {
     private List<Chain> chainPopulation;
     private String chainString;
-    private int generation;
-    public int populationSize = 500;
-    private final int mutationRate = 5;
-    private final int crossoverRate = 70;
+    public int generation;
+    public int populationSize = 100;
+    private PopulationBreeder breeder;
     private PopulationFitnessEvaluator evaluator;
-    private final int numberOfElites = 10;
 
     public List<Chain> getChainPopulation() {
         return chainPopulation;
@@ -32,6 +29,7 @@ public class Population {
         this.chainPopulation = new ArrayList<>();
         this.generation = 0;
         evaluator = new PopulationFitnessEvaluator(this);
+        breeder = new PopulationBreeder(this);
     }
 
     public String getChainString() {
@@ -44,160 +42,39 @@ public class Population {
         this.generation = p.generation;
         this.populationSize = p.populationSize;
         this.evaluator = p.evaluator;
+        breeder = p.getBreeder();
+    }
+
+    public PopulationBreeder getBreeder() {
+        return breeder;
     }
 
     public PopulationFitnessEvaluator getEvaluator() {
         return evaluator;
     }
 
+    //generate chains with less overlappings?
     public void initPopulation() {
+        System.out.println("Initializing population...");
 
         for (int i = 0; i < populationSize; i++) {
             chainPopulation.add(new Chain(chainString));
         }
 
         for (Chain c : chainPopulation) {
-            c.generateDirections();
-            c.generateChain();
+            //do{
+                c.generateDirections();
+                c.generateChain();
+            //    c.getEvaluator().measureFitness();
+            //}while(c.getEvaluator().getOverlapping() > 10);
         }
     }
 
-    private void setChainPopulation(List<Chain> chainPopulation) {
+    public void setChainPopulation(List<Chain> chainPopulation) {
         this.chainPopulation = chainPopulation;
     }
 
     public int getGeneration() {
         return generation;
-    }
-
-    //TODO: Rework fitnessProportionalSelection
-    public void fitnessProportionalSelection() {
-        Random randGenerator = new Random();
-        double randNum;
-
-        ArrayList<Chain> selectedPopulation = new ArrayList<>();
-        int index = 0;
-        double fitnessPerChain;
-        float totalFiness = evaluator.measureTotalFitness();
-
-        for (Chain c : chainPopulation) {
-            randNum = randGenerator.nextFloat() * totalFiness;
-
-            for (int i = 0; i < chainPopulation.size(); i++) {
-                fitnessPerChain = chainPopulation.get(i).getEvaluator().getCurrentFitness();
-                randNum -= fitnessPerChain;
-                if (randNum <= 0) {
-                    index = i;
-                    break;
-                }
-            }
-            selectedPopulation.add(chainPopulation.get(index));
-        }
-        generation++;
-        this.setChainPopulation(selectedPopulation);
-    }
-
-    public void fitnessProportialSelectionWithElitism() {
-        Random randGenerator = new Random();
-        double randNum;
-
-        ArrayList<Chain> selectedPopulation = new ArrayList<>();
-        int index = 0;
-        double fitnessPerChain;
-
-        float totalFitness = evaluator.measureTotalFitness();
-
-        for (int i = numberOfElites; i < chainPopulation.size(); i++) {
-            randNum = randGenerator.nextFloat() * totalFitness;
-
-            for (int j = 0; j < chainPopulation.size(); j++) {
-                fitnessPerChain = chainPopulation.get(i).getEvaluator().getCurrentFitness();
-                randNum -= fitnessPerChain;
-                if (randNum <= 0) {
-                    index = j;
-                    break;
-                }
-            }
-            selectedPopulation.add(chainPopulation.get(index));
-        }
-
-
-        //elitism for the best 10 chains
-        Object[] oarr = chainPopulation.stream().sorted((chain, t1) -> {
-            if (chain.getEvaluator().getCurrentFitness() > t1.getEvaluator().getCurrentFitness())
-                return -1;
-            else if (chain.getEvaluator().getCurrentFitness() == t1.getEvaluator().getCurrentFitness())
-                return 0;
-            else return 1;
-        }).toArray();
-
-        for (int i = 0; i < numberOfElites; i++) {
-            selectedPopulation.add((Chain) oarr[i]);
-        }
-
-        generation++;
-        this.setChainPopulation(selectedPopulation);
-
-    }
-
-    public void randomResettingMutation() {
-        int totalMutations = populationSize * chainString.length() * mutationRate / 100;
-        int chainMutationIndex;
-
-        Random rand = new Random();
-
-        for (int i = 0; i < totalMutations; i++) {
-            chainMutationIndex = rand.nextInt(populationSize * chainPopulation.size());
-
-            for (Chain c : chainPopulation) {
-                if (chainMutationIndex - chainString.length() < 0) {
-                    int mutateDirection = rand.nextInt(4);
-                    c.getDirections().set(chainMutationIndex, Chain.Direction.values()[mutateDirection]);
-                    c.generateChain();
-                    break;
-                } else {
-                    chainMutationIndex -= c.getAmminoChain().size();
-                }
-            }
-        }
-    }
-
-    public void onePointCrossover() {
-        int totalCrossovers = populationSize * crossoverRate / 100;
-        int crossoverIndex;
-
-        List<Chain.Direction> dir1new = new ArrayList<>();
-        List<Chain.Direction> dir2new = new ArrayList<>();
-
-        Random rand = new Random();
-
-        //for each onePointCrossover
-        for (int i = 0; i < totalCrossovers; i++) {
-            crossoverIndex = rand.nextInt(chainString.length() - 1);
-
-            //grab two random chains from our population
-            int chain1Index = rand.nextInt(chainPopulation.size());
-            int chain2Index = rand.nextInt(chainPopulation.size());
-            Chain c1 = chainPopulation.get(chain1Index);
-            Chain c2 = chainPopulation.get(chain2Index);
-
-            //copy first half
-            for (int j = 0; j < crossoverIndex; j++) {
-                dir1new.add(c1.getDirections().get(j));
-                dir2new.add(c2.getDirections().get(j));
-            }
-
-            //copy second half
-            for (int k = crossoverIndex + 1; k < chainString.length(); k++) {
-                dir1new.add(c2.getDirections().get(k));
-                dir2new.add(c1.getDirections().get(k));
-            }
-
-            //set onePointCrossover chains and generate them
-            c1.setDirections(dir1new);
-            c2.setDirections(dir2new);
-            chainPopulation.get(chain1Index).generateChain();
-            chainPopulation.get(chain2Index).generateChain();
-        }
     }
 }

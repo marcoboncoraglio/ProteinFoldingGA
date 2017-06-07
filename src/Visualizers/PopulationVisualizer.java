@@ -87,7 +87,7 @@ public class PopulationVisualizer {
 
         };
 
-        timer.schedule(task, 100, 500);
+        timer.schedule(task, 50, 200);
     }
 }
 

@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class Chain {
 
-    enum Direction {
+    public enum Direction {
         NORTH,
         SOUTH,
         EAST,
@@ -43,7 +43,7 @@ public class Chain {
         return evaluator;
     }
 
-    List<Direction> getDirections() {
+    public List<Direction> getDirections() {
         return directions;
     }
 
