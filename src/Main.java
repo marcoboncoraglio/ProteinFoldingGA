@@ -9,19 +9,19 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Population p = new Population("010100011010010");
+        Population p = new Population("100101001010010101001011001111010010010100100101011110101001010100101101011101010010101101101100110111");
 
         p.initPopulation();
-        //PopulationVisualizer visualizer = new PopulationVisualizer(p);
+        PopulationVisualizer visualizer = new PopulationVisualizer(p);
         //PopulationFileOutput output = new PopulationFileOutput(p);
 
 
         do {
-            p.getBreeder().fitnessProportialSelectionWithElitism();
+            p.getBreeder().fitnessProportionalSelection();
             p.getBreeder().randomResettingMutation();
             p.getBreeder().onePointCrossover();
             //output.printData();
-        } while (p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping() != 0);
+        } while (p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getCurrentFitness() < 10);
 
         new ChainVisualizer(p.getEvaluator().getHighestRecordedFitnessChain());
         System.out.println(p.getEvaluator().getHighestRecordedFitnessChain());

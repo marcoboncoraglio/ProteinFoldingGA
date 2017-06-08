@@ -11,12 +11,11 @@ import java.util.stream.DoubleStream;
  * Created by marco on 11/05/17.
  */
 
-//TODO: measure genetic diversity (how many chains are the same in population)
 public class Population {
     private List<Chain> chainPopulation;
     private final String chainString;
     public int generation;
-    public int populationSize = 100;
+    public int populationSize = 1000;
     private PopulationBreeder breeder;
     private PopulationFitnessEvaluator evaluator;
 

@@ -29,7 +29,7 @@ public class ChainFitnessEvaluator {
         for (int i = 0; i < tmpChain.getAmminoChain().size(); i++) {
             for (int j = 0; j < tmpChain.getAmminoChain().size(); j++) {
                 //if not equal and physically overlapping
-                if ((tmpChain.getAmminoChain().get(i) != tmpChain.getAmminoChain().get(j)) &&
+                if ((i != j) &&
                         tmpChain.getAmminoChain().get(i).getX() == tmpChain.getAmminoChain().get(j).getX() &&
                         tmpChain.getAmminoChain().get(i).getY() == tmpChain.getAmminoChain().get(j).getY()) {
                     overlapping++;
@@ -69,7 +69,7 @@ public class ChainFitnessEvaluator {
         }
 
         if (overlapping > 0) {
-            currentFitness = (fitness/2) / Math.pow(overlapping+1, 3);
+            currentFitness = (fitness/2) / Math.pow(overlapping, 2);
         } else if(fitness == 0 && overlapping == 0){
             currentFitness = 1;
         }

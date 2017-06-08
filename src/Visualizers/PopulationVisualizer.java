@@ -20,6 +20,7 @@ public class PopulationVisualizer {
     private Population population;
     private int currentGeneration;
     private double averageFitness;
+    private float genDiversity;
     private double currentHigh;
     private double allTimeHigh;
 
@@ -33,14 +34,17 @@ public class PopulationVisualizer {
         ITrace2D averageFitnessChart = new Trace2DLtd(5000, "Average Fitness");
         ITrace2D currentHighest = new Trace2DLtd(5000, "Current Highest");
         ITrace2D allTimeHighest = new Trace2DLtd(5000, "All Time highest");
+        ITrace2D geneticDiversity = new Trace2DLtd(5000, "Genetic diversity");
         averageFitnessChart.setColor(Color.ORANGE);
         currentHighest.setColor(Color.BLUE);
         allTimeHighest.setColor(Color.RED);
+        geneticDiversity.setColor(Color.GREEN);
 
         // Add the trace to the chart. This has to be done before adding points (deadlock prevention):
         chart.addTrace(averageFitnessChart);
         chart.addTrace(currentHighest);
         chart.addTrace(allTimeHighest);
+        chart.addTrace(geneticDiversity);
 
         // Make it visible:
         // Create a frame.
@@ -71,23 +75,27 @@ public class PopulationVisualizer {
                 currentHigh = tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getCurrentFitness(); //maybe optimize a bit?
                 allTimeHigh = tmpPopulation.getEvaluator().getHighestRecordedFitness();
                 currentGeneration = tmpPopulation.getGeneration();
+                genDiversity = tmpPopulation.getBreeder().getGeneticDiversity();
                 averageFitness = tmpPopulation.getEvaluator().measureAverageFitness();
+
                 averageFitnessChart.addPoint(currentGeneration, averageFitness);
                 currentHighest.addPoint(currentGeneration, currentHigh);
                 allTimeHighest.addPoint(currentGeneration, allTimeHigh);
+                geneticDiversity.addPoint(currentGeneration, genDiversity);
 
-                System.out.println("generation: " +currentGeneration);
+                System.out.println("generation: " + currentGeneration);
                 System.out.println("average: " + averageFitness);
-                System.out.println("current highest chain: " +currentHigh);
+                System.out.println("current highest chain: " + currentHigh);
                 System.out.println("current highest overlapping: " + tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getOverlapping());
                 System.out.println("all time highest: " + allTimeHigh);
                 System.out.println("all time highest overlapping: " + tmpPopulation.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
+                System.out.println("Genetic diversity: " + genDiversity);
                 System.out.println("------------------");
             }
 
         };
 
-        timer.schedule(task, 50, 200);
+        timer.schedule(task, 50, 500);
     }
 }
 

@@ -13,15 +13,15 @@ import java.util.Random;
  */
 public class PopulationBreeder {
     private Population population;
-    private final int mutationRate = 5;
+    private final int mutationRate = 2;
     private final int crossoverRate = 60;
     private final int numberOfElites = 5;
+    private float sameChainsInPopulation = 0;
 
     public PopulationBreeder(Population p) {
         population = p;
     }
 
-    //TODO: Rework fitnessProportionalSelection
     public void fitnessProportionalSelection() {
         Random randGenerator = new Random();
         double randNum;
@@ -47,11 +47,12 @@ public class PopulationBreeder {
         }
 
         population.generation++;
+        //measureGeneticDiversity();
+
         population.setChainPopulation(selectedPopulation);
     }
 
-    public void fitnessProportialSelectionWithElitism() {
-        //see fitnessProportionalSelection for comments
+    public void fitnessProportionalSelectionWithElitism() {
         Random randGenerator = new Random();
         double randNum;
 
@@ -91,6 +92,8 @@ public class PopulationBreeder {
         }
 
         population.generation++;
+        //measureGeneticDiversity();
+
         population.setChainPopulation(selectedPopulation);
 
     }
@@ -119,7 +122,7 @@ public class PopulationBreeder {
     }
 
     public void onePointCrossover() {
-        int totalCrossoversPairs = population.getChainPopulation().size()/2 * crossoverRate / 100;   //population size
+        int totalCrossoversPairs = population.getChainPopulation().size() / 2 * crossoverRate / 100;   //population size
         int crossoverIndex;
 
         Random rand = new Random();
@@ -130,7 +133,7 @@ public class PopulationBreeder {
             List<Chain.Direction> dir2new = new ArrayList<>();
 
             //the index at which the crossover happens
-            crossoverIndex = rand.nextInt(population.getChainString().length()-1) +1;
+            crossoverIndex = rand.nextInt(population.getChainString().length() - 1) + 1;
 
             //grab two random chains from our population
             int chain1Index = rand.nextInt(population.getChainPopulation().size());
@@ -145,7 +148,7 @@ public class PopulationBreeder {
             }
 
             //copy second half
-            for (int k = crossoverIndex-1; k < c1.getDirections().size()-1; k++) {
+            for (int k = crossoverIndex - 1; k < c1.getDirections().size() - 1; k++) {
                 dir1new.add(c2.getDirections().get(k));
                 dir2new.add(c1.getDirections().get(k));
             }
@@ -163,7 +166,7 @@ public class PopulationBreeder {
         }
     }
 
-    //TODO: rank based selection not yet implemented
+    //TODO: not yet implemented
     public void rankBasedSelection() {
         Random rand = new Random();
 
@@ -189,5 +192,25 @@ public class PopulationBreeder {
 
         ArrayList<Chain> selectedPopulation = new ArrayList<>();
 
+    }
+
+    //TODO: not correct
+    public void measureGeneticDiversity() {
+        sameChainsInPopulation = 0;
+        for (int i = 0; i < population.getChainPopulation().size(); i++) {
+            for (int j = 0; j < population.getChainPopulation().size(); j++) {
+                if (i != j && population.getChainPopulation().get(i).getDirections() == population.getChainPopulation().get(j).getDirections()) {
+                    sameChainsInPopulation++;
+                }
+            }
+        }
+
+        System.out.println("SAME CHAINS NUM: " + sameChainsInPopulation);
+        sameChainsInPopulation /= 2;
+    }
+
+    //In theory give out percentage of same chains
+    public float getGeneticDiversity() {
+        return (sameChainsInPopulation / population.getChainPopulation().size());
     }
 }
