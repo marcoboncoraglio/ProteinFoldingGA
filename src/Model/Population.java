@@ -10,11 +10,11 @@ import java.util.stream.DoubleStream;
 /**
  * Created by marco on 11/05/17.
  */
-//TODO: implement tournament selection
+
 //TODO: measure genetic diversity (how many chains are the same in population)
 public class Population {
     private List<Chain> chainPopulation;
-    private String chainString;
+    private final String chainString;
     public int generation;
     public int populationSize = 100;
     private PopulationBreeder breeder;

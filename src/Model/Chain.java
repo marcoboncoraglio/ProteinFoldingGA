@@ -32,6 +32,10 @@ public class Chain {
 
     }
 
+    public String getChainString() {
+        return chainString;
+    }
+
     public Chain(Chain c){
         this.directions = new ArrayList<>(c.directions);
         this.amminoChain = new ArrayList<>(c.amminoChain);
@@ -132,5 +136,12 @@ public class Chain {
             }
 
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Chain{" +
+                "directions=" + directions +
+                '}';
     }
 }
