@@ -11,11 +11,6 @@ public class PopulationFitnessEvaluator {
     private float totalFitness = 0;
     private Chain highestRecordedFitnessChain;
     private Chain highestFitnessInGeneration;
-    private float allTimeFittestFitness;
-
-    public float getAllTimeFittestFitness() {
-        return allTimeFittestFitness;
-    }
 
     public PopulationFitnessEvaluator(Population p) {
         this.p = p;
@@ -50,10 +45,6 @@ public class PopulationFitnessEvaluator {
         return total;
     }
 
-    public double getHighestRecordedFitness() {
-        return allTimeFittestFitness;
-    }
-
     public float measureAverageFitness() {
         return totalFitness / p.populationSize;
     }
@@ -69,13 +60,14 @@ public class PopulationFitnessEvaluator {
                 return 0;
             else return 1;
         }).toArray()[0];
+        highestFitnessInGeneration = new Chain(highestFitnessChain); //copy of chain
+
 
         highestFitnessChain.getEvaluator().measureFitness();
         highestRecordedFitnessChain.getEvaluator().measureFitness();
-        if(highestFitnessChain.getEvaluator().getCurrentFitness() > highestRecordedFitnessChain.getEvaluator().getCurrentFitness()){
-            highestRecordedFitnessChain = new Chain(highestFitnessChain);
+        if(highestFitnessInGeneration.getEvaluator().getCurrentFitness() > highestRecordedFitnessChain.getEvaluator().getCurrentFitness()){
+            highestRecordedFitnessChain = new Chain(highestFitnessChain); //copy of chain
         }
 
-        highestFitnessInGeneration = new Chain(highestFitnessChain);
     }
 }

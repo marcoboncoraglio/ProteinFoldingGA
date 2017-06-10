@@ -3,16 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9a835602-b2a0-448a-837f-da1aae55289c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Main.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Model/Population.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Model/Population.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/ChainFitnessEvaluator.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/ChainFitnessEvaluator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFileOutput.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFileOutput.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFitnessEvaluator.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFitnessEvaluator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" afterPath="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/PopulationBreeder.java" afterPath="$PROJECT_DIR$/src/Util/PopulationBreeder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" afterPath="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" afterPath="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" afterPath="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="69" lean-forward="false" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+            <state relative-caret-position="152">
+              <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
               <folding>
                 <element signature="docComment;class#Main#0" expanded="false" />
               </folding>
@@ -42,7 +40,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
               <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#384#385#0" expanded="false" />
+                <element signature="e#408#409#0" expanded="false" />
+                <element signature="e#433#434#0" expanded="false" />
+                <element signature="e#457#458#0" expanded="false" />
+                <element signature="e#485#486#0" expanded="false" />
+                <element signature="e#512#513#0" expanded="false" />
+                <element signature="e#541#542#0" expanded="false" />
+                <element signature="e#569#570#0" expanded="false" />
+                <element signature="e#607#608#0" expanded="false" />
+                <element signature="e#643#644#0" expanded="false" />
+                <element signature="e#680#681#0" expanded="false" />
+                <element signature="e#712#713#0" expanded="false" />
+                <element signature="e#751#752#0" expanded="false" />
+                <element signature="e#785#786#0" expanded="false" />
+                <element signature="e#833#834#0" expanded="false" />
+                <element signature="e#899#900#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,12 +65,14 @@
       <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Population.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="168">
+              <caret line="50" column="38" lean-forward="false" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
               <folding>
                 <element signature="docComment;class#Population#0" expanded="false" />
                 <element signature="method#Population#0;class#Population#0" expanded="false" />
                 <element signature="method#Population#1;class#Population#0" expanded="false" />
+                <element signature="e#1342#1343#0" expanded="true" />
+                <element signature="e#1374#1375#0" expanded="true" />
                 <element signature="method#initPopulation#0;class#Population#0" expanded="false" />
                 <element signature="e#1783#1823#0" expanded="false" />
               </folding>
@@ -66,17 +83,22 @@
       <file leaf-file-name="PopulationBreeder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Util/PopulationBreeder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="179" selection-end-column="21" />
+            <state relative-caret-position="-84">
+              <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
                 <element signature="docComment;class#PopulationBreeder#0" expanded="false" />
-                <element signature="method#fitnessProportionalSelection#0;class#PopulationBreeder#0" expanded="false" />
                 <element signature="method#fitnessProportionalSelectionWithElitism#0;class#PopulationBreeder#0" expanded="false" />
-                <element signature="e#2657#2965#0" expanded="false" />
-                <element signature="method#randomResettingMutation#0;class#PopulationBreeder#0" expanded="false" />
-                <element signature="method#onePointCrossover#0;class#PopulationBreeder#0" expanded="false" />
-                <element signature="e#6333#6641#0" expanded="false" />
-                <element signature="method#measureGeneticDiversity#0;class#PopulationBreeder#0" expanded="false" />
+                <element signature="e#7853#7854#0" expanded="false" />
+                <marker date="1497096983632" expanded="false" signature="487:498" ph=" { " />
+                <marker date="1497096983632" expanded="false" signature="513:519" ph=" }" />
+                <marker date="1497096983632" expanded="false" signature="568:1683" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="2673:2966" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="3324:4253" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="4291:6108" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="6179:7060" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="6349:6642" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="7128:7671" ph="{...}" />
+                <marker date="1497096983632" expanded="false" signature="7762:7773" ph=" { " />
               </folding>
             </state>
           </provider>
@@ -85,22 +107,24 @@
       <file leaf-file-name="PopulationVisualizer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="-116">
+              <caret line="73" column="40" lean-forward="false" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="40" />
+              <folding>
+                <element signature="e#2205#4003#0" expanded="true" />
+                <element signature="e#4002#4003#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChainFitnessEvaluator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChainFitnessEvaluator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+            <state relative-caret-position="190">
+              <caret line="96" column="67" lean-forward="false" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
               <folding>
                 <element signature="docComment;class#ChainFitnessEvaluator#0" expanded="false" />
-                <element signature="method#measureFitness#0;class#ChainFitnessEvaluator#0" expanded="false" />
-                <marker date="1497082105897" expanded="false" signature="3979:4038" ph="{...}" />
+                <marker date="1497100237718" expanded="true" signature="3981:4040" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -109,13 +133,27 @@
       <file leaf-file-name="PopulationFitnessEvaluator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="73" column="68" lean-forward="false" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
+            <state relative-caret-position="342">
+              <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
               <folding>
                 <element signature="docComment;class#PopulationFitnessEvaluator#0" expanded="false" />
                 <element signature="method#PopulationFitnessEvaluator#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+                <element signature="method#initFittest#0;class#PopulationFitnessEvaluator#0" expanded="false" />
                 <element signature="method#measureTotalFitness#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-                <element signature="e#1807#2115#0" expanded="false" />
+                <element signature="method#measureHighestFitnessChains#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+                <element signature="e#1582#1890#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PopulationFileOutput.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="27" column="111" lean-forward="false" selection-start-line="27" selection-start-column="111" selection-end-line="27" selection-end-column="111" />
+              <folding>
+                <element signature="docComment;class#PopulationFileOutput#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -161,12 +199,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Visualizers/ChainVisualizer.java" />
         <option value="$PROJECT_DIR$/src/Model/Population.java" />
-        <option value="$PROJECT_DIR$/src/Util/PopulationBreeder.java" />
-        <option value="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" />
-        <option value="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Util/PopulationBreeder.java" />
         <option value="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" />
         <option value="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" />
+        <option value="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" />
+        <option value="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" />
       </list>
     </option>
   </component>
@@ -867,7 +905,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89317000" />
+    <option name="totallyTimeSpent" value="91328000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -905,11 +943,34 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5135135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3027027" sideWeight="0.5051546" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5135135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.4974227" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30405405" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.4974227" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17074743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1027,6 +1088,8 @@
             <element signature="docComment;class#Population#0" expanded="false" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="method#Population#1;class#Population#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
             <element signature="method#initPopulation#0;class#Population#0" expanded="false" />
             <element signature="e#1783#1823#0" expanded="false" />
           </folding>
@@ -1086,6 +1149,8 @@
             <element signature="docComment;class#Population#0" expanded="false" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="method#Population#1;class#Population#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
             <element signature="method#initPopulation#0;class#Population#0" expanded="false" />
             <element signature="e#1783#1823#0" expanded="false" />
           </folding>
@@ -1132,6 +1197,8 @@
             <element signature="docComment;class#Population#0" expanded="false" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="method#Population#1;class#Population#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
             <element signature="method#initPopulation#0;class#Population#0" expanded="false" />
             <element signature="e#1783#1823#0" expanded="false" />
           </folding>
@@ -1164,6 +1231,8 @@
             <element signature="docComment;class#Population#0" expanded="false" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="method#Population#1;class#Population#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
             <element signature="method#initPopulation#0;class#Population#0" expanded="false" />
             <element signature="e#1783#1823#0" expanded="false" />
           </folding>
@@ -1281,14 +1350,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Chain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#384#385#0" expanded="false" />
+            <element signature="e#408#409#0" expanded="false" />
+            <element signature="e#433#434#0" expanded="false" />
+            <element signature="e#457#458#0" expanded="false" />
+            <element signature="e#485#486#0" expanded="false" />
+            <element signature="e#512#513#0" expanded="false" />
+            <element signature="e#541#542#0" expanded="false" />
+            <element signature="e#569#570#0" expanded="false" />
+            <element signature="e#607#608#0" expanded="false" />
+            <element signature="e#643#644#0" expanded="false" />
+            <element signature="e#680#681#0" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#751#752#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#833#834#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1306,50 +1385,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/PopulationBreeder.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Chain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="179" selection-end-column="21" />
+        <state relative-caret-position="152">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="docComment;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#fitnessProportionalSelection#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#fitnessProportionalSelectionWithElitism#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="e#2657#2965#0" expanded="false" />
-            <element signature="method#randomResettingMutation#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#onePointCrossover#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="e#6333#6641#0" expanded="false" />
-            <element signature="method#measureGeneticDiversity#0;class#PopulationBreeder#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="76" lean-forward="false" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
-          <folding>
-            <element signature="docComment;class#PopulationFileOutput#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="73" column="68" lean-forward="false" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
-          <folding>
-            <element signature="docComment;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="method#PopulationFitnessEvaluator#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="method#measureTotalFitness#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="e#1807#2115#0" expanded="false" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="69" lean-forward="false" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+        <state relative-caret-position="152">
+          <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
           </folding>
@@ -1358,12 +1408,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Population.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="168">
+          <caret line="50" column="38" lean-forward="false" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
           <folding>
             <element signature="docComment;class#Population#0" expanded="false" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
             <element signature="method#Population#1;class#Population#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
             <element signature="method#initPopulation#0;class#Population#0" expanded="false" />
             <element signature="e#1783#1823#0" expanded="false" />
           </folding>
@@ -1372,20 +1424,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="-116">
+          <caret line="73" column="40" lean-forward="false" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="40" />
+          <folding>
+            <element signature="e#2205#4003#0" expanded="true" />
+            <element signature="e#4002#4003#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+        <state relative-caret-position="190">
+          <caret line="96" column="67" lean-forward="false" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
           <folding>
             <element signature="docComment;class#ChainFitnessEvaluator#0" expanded="false" />
-            <element signature="method#measureFitness#0;class#ChainFitnessEvaluator#0" expanded="false" />
-            <marker date="1497082105897" expanded="false" signature="3979:4038" ph="{...}" />
+            <marker date="1497100237718" expanded="true" signature="3981:4040" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/PopulationBreeder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="docComment;class#PopulationBreeder#0" expanded="false" />
+            <element signature="method#fitnessProportionalSelectionWithElitism#0;class#PopulationBreeder#0" expanded="false" />
+            <element signature="e#7853#7854#0" expanded="false" />
+            <marker date="1497096983632" expanded="false" signature="487:498" ph=" { " />
+            <marker date="1497096983632" expanded="false" signature="513:519" ph=" }" />
+            <marker date="1497096983632" expanded="false" signature="568:1683" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="2673:2966" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="3324:4253" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="4291:6108" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="6179:7060" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="6349:6642" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="7128:7671" ph="{...}" />
+            <marker date="1497096983632" expanded="false" signature="7762:7773" ph=" { " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="method#PopulationFitnessEvaluator#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="method#initFittest#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="method#measureTotalFitness#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="method#measureHighestFitnessChains#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="e#1582#1890#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="27" column="111" lean-forward="false" selection-start-line="27" selection-start-column="111" selection-end-line="27" selection-end-column="111" />
+          <folding>
+            <element signature="docComment;class#PopulationFileOutput#0" expanded="false" />
           </folding>
         </state>
       </provider>
