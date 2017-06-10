@@ -26,6 +26,8 @@ public class PopulationFitnessEvaluator {
         highestFitnessInGeneration = new Chain(p.getChainString());
         highestRecordedFitnessChain.generateDirections();
         highestRecordedFitnessChain.generateChain();
+        highestFitnessInGeneration.generateDirections();
+        highestFitnessInGeneration.generateChain();
     }
 
     public Chain getHighestRecordedFitnessChain() {

@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class PopulationBreeder {
     private Population population;
-    private final int mutationRate = 2;
-    private final int crossoverRate = 60;
+    private final int mutationRate = 5;
+    private final int crossoverRate = 70;
     private final int numberOfElites = 5;
     private float sameChainsInPopulation = 0;
 
