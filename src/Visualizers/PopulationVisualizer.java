@@ -72,8 +72,8 @@ public class PopulationVisualizer {
 
                 //due to concurrency issues with main thread
                 Population tmpPopulation = new Population(population);
-                currentHigh = tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getCurrentFitness(); //maybe optimize a bit?
-                allTimeHigh = tmpPopulation.getEvaluator().getHighestRecordedFitness();
+                currentHigh = tmpPopulation.getEvaluator().getHighestFitnessInGeneration().getEvaluator().getCurrentFitness(); //maybe optimize a bit?
+                allTimeHigh = tmpPopulation.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getCurrentFitness();
                 currentGeneration = tmpPopulation.getGeneration();
                 genDiversity = tmpPopulation.getBreeder().getGeneticDiversity();
                 averageFitness = tmpPopulation.getEvaluator().measureAverageFitness();
@@ -86,7 +86,7 @@ public class PopulationVisualizer {
                 System.out.println("generation: " + currentGeneration);
                 System.out.println("average: " + averageFitness);
                 System.out.println("current highest chain: " + currentHigh);
-                System.out.println("current highest overlapping: " + tmpPopulation.getEvaluator().getHighestFitnessChain().getEvaluator().getOverlapping());
+                System.out.println("current highest overlapping: " + tmpPopulation.getEvaluator().getHighestFitnessInGeneration().getEvaluator().getOverlapping());
                 System.out.println("all time highest: " + allTimeHigh);
                 System.out.println("all time highest overlapping: " + tmpPopulation.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
                 System.out.println("Genetic diversity: " + genDiversity);

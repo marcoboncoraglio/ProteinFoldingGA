@@ -17,7 +17,7 @@ public class Main {
 
 
         do {
-            p.getBreeder().fitnessProportionalSelection();
+            p.getBreeder().fitnessProportionalSelectionWithElitism();
             p.getBreeder().randomResettingMutation();
             p.getBreeder().onePointCrossover();
             //output.printData();

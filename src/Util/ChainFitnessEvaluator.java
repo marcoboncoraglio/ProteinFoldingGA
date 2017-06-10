@@ -26,6 +26,31 @@ public class ChainFitnessEvaluator {
         Chain tmpChain = new Chain(chain);
         tmpChain.generateChain();
 
+        for (int i = 1; i < tmpChain.getDirections().size(); i++) {
+            switch (tmpChain.getDirections().get(i)) {
+                case EAST:
+                    if (tmpChain.getDirections().get(i - 1) == Chain.Direction.WEST) {
+                        overlapping++;
+                    }
+                    break;
+                case WEST:
+                    if (tmpChain.getDirections().get(i - 1) == Chain.Direction.EAST) {
+                        overlapping++;
+                    }
+                    break;
+                case NORTH:
+                    if (tmpChain.getDirections().get(i - 1) == Chain.Direction.SOUTH) {
+                        overlapping++;
+                    }
+                    break;
+                case SOUTH:
+                    if (tmpChain.getDirections().get(i - 1) == Chain.Direction.NORTH) {
+                        overlapping++;
+                    }
+                    break;
+            }
+        }
+
         for (int i = 0; i < tmpChain.getAmminoChain().size(); i++) {
             for (int j = 0; j < tmpChain.getAmminoChain().size(); j++) {
                 //if not equal and physically overlapping
@@ -69,11 +94,10 @@ public class ChainFitnessEvaluator {
         }
 
         if (overlapping > 0) {
-            currentFitness = (fitness/2) / Math.pow(overlapping, 2);
-        } else if(fitness == 0 && overlapping == 0){
+            currentFitness = (fitness / 2) / Math.pow(overlapping, 2);
+        } else if (fitness == 0 && overlapping == 0) {
             currentFitness = 1;
-        }
-        else{
+        } else {
             currentFitness = fitness / 2;
         }
     }

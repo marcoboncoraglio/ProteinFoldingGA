@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9a835602-b2a0-448a-837f-da1aae55289c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Main.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Model/Population.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Model/Population.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/ChainFitnessEvaluator.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/ChainFitnessEvaluator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFileOutput.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFileOutput.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFitnessEvaluator.class" afterPath="$PROJECT_DIR$/out/production/ProteinSimulator/Util/PopulationFitnessEvaluator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Population.java" afterPath="$PROJECT_DIR$/src/Model/Population.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" afterPath="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/PopulationBreeder.java" afterPath="$PROJECT_DIR$/src/Util/PopulationBreeder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" afterPath="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" afterPath="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" afterPath="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,8 +28,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="11" column="141" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="141" />
+            <state relative-caret-position="270">
+              <caret line="19" column="69" lean-forward="false" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
               <folding>
                 <element signature="docComment;class#Main#0" expanded="false" />
               </folding>
@@ -33,11 +37,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Amminoacid.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Amminoacid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Population.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Population.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
               <folding>
                 <element signature="docComment;class#Population#0" expanded="false" />
                 <element signature="method#Population#0;class#Population#0" expanded="false" />
@@ -49,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PopulationBreeder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PopulationBreeder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Util/PopulationBreeder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="54" column="58" lean-forward="false" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
+            <state relative-caret-position="468">
+              <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="179" selection-end-column="21" />
               <folding>
                 <element signature="docComment;class#PopulationBreeder#0" expanded="false" />
                 <element signature="method#fitnessProportionalSelection#0;class#PopulationBreeder#0" expanded="false" />
@@ -61,47 +75,8 @@
                 <element signature="e#2657#2965#0" expanded="false" />
                 <element signature="method#randomResettingMutation#0;class#PopulationBreeder#0" expanded="false" />
                 <element signature="method#onePointCrossover#0;class#PopulationBreeder#0" expanded="false" />
-                <element signature="method#rankBasedSelection#0;class#PopulationBreeder#0" expanded="false" />
                 <element signature="e#6333#6641#0" expanded="false" />
                 <element signature="method#measureGeneticDiversity#0;class#PopulationBreeder#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Chain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Chain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#Chain#0" expanded="false" />
-                <element signature="class#Direction#0;class#Chain#0" expanded="false" />
-                <element signature="method#Chain#0;class#Chain#0" expanded="false" />
-                <element signature="e#627#628#0" expanded="true" />
-                <element signature="e#661#662#0" expanded="true" />
-                <element signature="method#Chain#1;class#Chain#0" expanded="false" />
-                <element signature="e#1053#1054#0" expanded="true" />
-                <element signature="method#generateDirections#0;class#Chain#0" expanded="false" />
-                <element signature="method#generateChain#0;class#Chain#0" expanded="false" />
-                <element signature="method#printChainConnections#0;class#Chain#0" expanded="false" />
-                <element signature="method#toString#0;class#Chain#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChainVisualizer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Visualizers/ChainVisualizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="64" column="37" lean-forward="false" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-              <folding>
-                <element signature="docComment;class#ChainVisualizer#0" expanded="false" />
-                <element signature="method#ChainVisualizer#0;class#ChainVisualizer#0" expanded="false" />
-                <element signature="method#findCenter#0;class#ChainVisualizer#0" expanded="false" />
-                <element signature="method#paint#0;class#ChainVisualizer#0" expanded="false" />
-                <element signature="method#plotGrid#0;class#ChainVisualizer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -110,20 +85,37 @@
       <file leaf-file-name="PopulationVisualizer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
+            <state relative-caret-position="276">
               <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChainFitnessEvaluator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChainFitnessEvaluator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+            <state relative-caret-position="420">
+              <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
               <folding>
                 <element signature="docComment;class#ChainFitnessEvaluator#0" expanded="false" />
+                <element signature="method#measureFitness#0;class#ChainFitnessEvaluator#0" expanded="false" />
+                <marker date="1497082105897" expanded="false" signature="3979:4038" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PopulationFitnessEvaluator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="73" column="68" lean-forward="false" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
+              <folding>
+                <element signature="docComment;class#PopulationFitnessEvaluator#0" expanded="false" />
+                <element signature="method#PopulationFitnessEvaluator#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+                <element signature="method#measureTotalFitness#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+                <element signature="e#1807#2115#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -164,17 +156,17 @@
         <option value="$PROJECT_DIR$/src/ChainVisualizer.java" />
         <option value="$PROJECT_DIR$/src/FitnessEvaluator.java" />
         <option value="$PROJECT_DIR$/src/Util/FitnessEvaluator.java" />
-        <option value="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" />
-        <option value="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" />
         <option value="$PROJECT_DIR$/src/Model/Amminoacid.java" />
         <option value="$PROJECT_DIR$/src/Model/Chain.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Visualizers/ChainVisualizer.java" />
-        <option value="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" />
         <option value="$PROJECT_DIR$/src/Model/Population.java" />
         <option value="$PROJECT_DIR$/src/Util/PopulationBreeder.java" />
+        <option value="$PROJECT_DIR$/src/Util/PopulationFileOutput.java" />
+        <option value="$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java" />
+        <option value="$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java" />
       </list>
     </option>
   </component>
@@ -287,9 +279,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -791,6 +783,8 @@
       <workItem from="1496874989342" duration="133000" />
       <workItem from="1496920607254" duration="137000" />
       <workItem from="1496922025254" duration="12602000" />
+      <workItem from="1497080561715" duration="649000" />
+      <workItem from="1497081885349" duration="232000" />
     </task>
     <task id="LOCAL-00001" summary="selector works :)">
       <created>1494631720360</created>
@@ -873,7 +867,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87558000" />
+    <option name="totallyTimeSpent" value="89317000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -902,7 +896,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.4974227" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16623712" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17074743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -973,7 +967,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="100" />
+      <option name="time" value="101" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1268,17 +1262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;class#PopulationFileOutput#0" expanded="false" />
-            <element signature="method#printData#0;class#PopulationFileOutput#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Comparator.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1293,27 +1276,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding>
-            <element signature="docComment;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="method#PopulationFitnessEvaluator#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="method#initFittest#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#848#849#0" expanded="false" />
-            <element signature="method#measureTotalFitness#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-            <element signature="method#getHighestFitnessChain#0;class#PopulationFitnessEvaluator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/Breeder.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Amminoacid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1322,19 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Chain#0" expanded="false" />
-            <element signature="class#Direction#0;class#Chain#0" expanded="false" />
-            <element signature="method#Chain#0;class#Chain#0" expanded="false" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="method#Chain#1;class#Chain#0" expanded="false" />
-            <element signature="e#1053#1054#0" expanded="true" />
-            <element signature="method#generateDirections#0;class#Chain#0" expanded="false" />
-            <element signature="method#generateChain#0;class#Chain#0" expanded="false" />
-            <element signature="method#printChainConnections#0;class#Chain#0" expanded="false" />
-            <element signature="method#toString#0;class#Chain#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1342,7 +1296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,48 +1303,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="64" column="37" lean-forward="false" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/PopulationBreeder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="179" selection-end-column="21" />
           <folding>
-            <element signature="docComment;class#ChainVisualizer#0" expanded="false" />
-            <element signature="method#ChainVisualizer#0;class#ChainVisualizer#0" expanded="false" />
-            <element signature="method#findCenter#0;class#ChainVisualizer#0" expanded="false" />
-            <element signature="method#paint#0;class#ChainVisualizer#0" expanded="false" />
-            <element signature="method#plotGrid#0;class#ChainVisualizer#0" expanded="false" />
+            <element signature="docComment;class#PopulationBreeder#0" expanded="false" />
+            <element signature="method#fitnessProportionalSelection#0;class#PopulationBreeder#0" expanded="false" />
+            <element signature="method#fitnessProportionalSelectionWithElitism#0;class#PopulationBreeder#0" expanded="false" />
+            <element signature="e#2657#2965#0" expanded="false" />
+            <element signature="method#randomResettingMutation#0;class#PopulationBreeder#0" expanded="false" />
+            <element signature="method#onePointCrossover#0;class#PopulationBreeder#0" expanded="false" />
+            <element signature="e#6333#6641#0" expanded="false" />
+            <element signature="method#measureGeneticDiversity#0;class#PopulationBreeder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFileOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="76" lean-forward="false" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
+          <folding>
+            <element signature="docComment;class#PopulationFileOutput#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/PopulationFitnessEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="73" column="68" lean-forward="false" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
+          <folding>
+            <element signature="docComment;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="method#PopulationFitnessEvaluator#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="method#measureTotalFitness#0;class#PopulationFitnessEvaluator#0" expanded="false" />
+            <element signature="e#1807#2115#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="11" column="141" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="141" />
+        <state relative-caret-position="270">
+          <caret line="19" column="69" lean-forward="false" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-          <folding>
-            <element signature="docComment;class#ChainFitnessEvaluator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Population.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
           <folding>
             <element signature="docComment;class#Population#0" expanded="false" />
             <element signature="method#Population#0;class#Population#0" expanded="false" />
@@ -1402,20 +1370,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/PopulationBreeder.java">
+    <entry file="file://$PROJECT_DIR$/src/Visualizers/PopulationVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="54" column="58" lean-forward="false" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
+        <state relative-caret-position="276">
+          <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/ChainFitnessEvaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding>
-            <element signature="docComment;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#fitnessProportionalSelection#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#fitnessProportionalSelectionWithElitism#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="e#2657#2965#0" expanded="false" />
-            <element signature="method#randomResettingMutation#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#onePointCrossover#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="method#rankBasedSelection#0;class#PopulationBreeder#0" expanded="false" />
-            <element signature="e#6333#6641#0" expanded="false" />
-            <element signature="method#measureGeneticDiversity#0;class#PopulationBreeder#0" expanded="false" />
+            <element signature="docComment;class#ChainFitnessEvaluator#0" expanded="false" />
+            <element signature="method#measureFitness#0;class#ChainFitnessEvaluator#0" expanded="false" />
+            <marker date="1497082105897" expanded="false" signature="3979:4038" ph="{...}" />
           </folding>
         </state>
       </provider>
