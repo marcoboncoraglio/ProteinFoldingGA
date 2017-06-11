@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Population p = new Population("100101001010010101001011001111010010010100100101011110101001010100101101011101010010101101101100110111");
+        Population p = new Population("101010101010110110110101010011100110");
 
         p.initPopulation();
         PopulationVisualizer visualizer = new PopulationVisualizer(p);
@@ -17,15 +17,17 @@ public class Main {
 
 
         do {
-            p.getBreeder().fitnessProportionalSelection();
             p.getBreeder().randomResettingMutation();
             p.getBreeder().onePointCrossover();
+            p.getBreeder().fitnessProportionalSelectionWithElitism();
             //output.printData();
-        } while (p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getCurrentFitness() < 10);
+        } while (p.getEvaluator().getHighestFitnessEver().getEvaluator().getCurrentFitness() < 1000
+                && p.getEvaluator().getHighestFitnessEver().getEvaluator().getOverlapping() == 0);
+        //why the fuck are we jumping out
 
-        new ChainVisualizer(p.getEvaluator().getHighestRecordedFitnessChain());
-        System.out.println(p.getEvaluator().getHighestRecordedFitnessChain());
-        System.out.println("Final Overlapping: " + p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getOverlapping());
-        System.out.println("Final Fitness: " + p.getEvaluator().getHighestRecordedFitnessChain().getEvaluator().getCurrentFitness());
+        //new ChainVisualizer(p.getEvaluator().getHighestFitnessEver());
+        //System.out.println(p.getEvaluator().getHighestFitnessEver());
+        System.out.println("Final Overlapping: " + p.getEvaluator().getHighestFitnessEver().getEvaluator().getOverlapping());
+        System.out.println("Final Fitness: " + p.getEvaluator().getHighestFitnessEver().getEvaluator().getCurrentFitness());
     }
 }

@@ -8,33 +8,30 @@ import Model.Population;
  */
 public class PopulationFitnessEvaluator {
     Population p;
-    private float totalFitness = 0;
-    private Chain highestRecordedFitnessChain;
-    private Chain highestFitnessInGeneration;
+    private float totalFitness;
+    private Chain highestFitnessEver;
+    private Chain highestFitnessThisGeneration;
+
 
     public PopulationFitnessEvaluator(Population p) {
         this.p = p;
         initFittest();
     }
 
-    public Chain getHighestFitnessInGeneration() {
-        return highestFitnessInGeneration;
-    }
-
     private void initFittest(){
-        highestRecordedFitnessChain = new Chain(p.getChainString());
-        highestFitnessInGeneration = new Chain(p.getChainString());
-        highestRecordedFitnessChain.generateDirections();
-        highestRecordedFitnessChain.generateChain();
-        highestFitnessInGeneration.generateDirections();
-        highestFitnessInGeneration.generateChain();
+        highestFitnessEver = new Chain(p.getChainString());
+        highestFitnessThisGeneration = new Chain(p.getChainString());
+        highestFitnessThisGeneration.generateDirections();
+        highestFitnessThisGeneration.generateChain();
+        highestFitnessEver.generateDirections();
+        highestFitnessEver.generateChain();
     }
 
-    public Chain getHighestRecordedFitnessChain() {
-        return highestRecordedFitnessChain;
+    public Chain getHighestFitnessEver() {
+        return highestFitnessEver;
     }
 
-    public float measureTotalFitness() {
+    public void measureTotalFitness() {
         float total = 0;
 
         for (Chain c : p.getChainPopulation()) {
@@ -43,33 +40,32 @@ public class PopulationFitnessEvaluator {
         }
 
         totalFitness = total;
-        measureHighestFitnessChains();
-        return total;
+    }
+
+    public float getTotalFitness() {
+        return totalFitness;
     }
 
     public float measureAverageFitness() {
         return totalFitness / p.populationSize;
     }
 
-    //TODO: I think this is wrong, make this into measure function, call in measuretotal?
-    public void measureHighestFitnessChains() {
+    public void findHighestFitnesses() {
 
-        //array sorted by ascending fitness
-        Chain highestFitnessChain = (Chain) p.getChainPopulation().stream().sorted((chain, t1) -> {
+        highestFitnessThisGeneration = new Chain((Chain) p.getChainPopulation().stream().sorted((chain, t1) -> {
             if (chain.getEvaluator().getCurrentFitness() > t1.getEvaluator().getCurrentFitness())
                 return -1;
             else if (chain.getEvaluator().getCurrentFitness() == t1.getEvaluator().getCurrentFitness())
                 return 0;
             else return 1;
-        }).toArray()[0];
-        highestFitnessInGeneration = new Chain(highestFitnessChain); //copy of chain
+        }).toArray()[0]);
 
-
-        highestFitnessChain.getEvaluator().measureFitness();
-        highestRecordedFitnessChain.getEvaluator().measureFitness();
-        if(highestFitnessInGeneration.getEvaluator().getCurrentFitness() > highestRecordedFitnessChain.getEvaluator().getCurrentFitness()){
-            highestRecordedFitnessChain = new Chain(highestFitnessChain); //copy of chain
+        if(highestFitnessThisGeneration.getEvaluator().getCurrentFitness() > highestFitnessEver.getEvaluator().getCurrentFitness()){
+            highestFitnessEver = new Chain(highestFitnessThisGeneration);
         }
+    }
 
+    public Chain getHighestFitnessThisGeneration() {
+        return highestFitnessThisGeneration;
     }
 }

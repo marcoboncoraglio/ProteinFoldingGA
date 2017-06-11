@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class PopulationBreeder {
     private Population population;
-    private final int mutationRate = 5;
+    private final int mutationRate = 50;
     private final int crossoverRate = 70;
     private final int numberOfElites = 5;
     private float sameChainsInPopulation = 0;
@@ -27,7 +27,9 @@ public class PopulationBreeder {
         double randNum;
 
         ArrayList<Chain> selectedPopulation = new ArrayList<>();
-        float totalFiness = population.getEvaluator().measureTotalFitness();
+        population.getEvaluator().measureTotalFitness();
+        population.getEvaluator().findHighestFitnesses();
+        float totalFiness = population.getEvaluator().getTotalFitness();
 
         //to obtain as many chains in the next generation as in the current one, replace each chain
         for (Chain c : population.getChainPopulation()) {
@@ -59,10 +61,13 @@ public class PopulationBreeder {
         ArrayList<Chain> selectedPopulation = new ArrayList<>();
 
 
-        float totalFitness = population.getEvaluator().measureTotalFitness();
+        population.getEvaluator().measureTotalFitness();
+        population.getEvaluator().findHighestFitnesses();
+
+        float totalFiness = population.getEvaluator().getTotalFitness();
 
         for (int i = numberOfElites; i < population.getChainPopulation().size(); i++) {
-            randNum = randGenerator.nextFloat() * totalFitness;
+            randNum = randGenerator.nextFloat() * population.getEvaluator().getTotalFitness();
 
 
             int index = 0;
